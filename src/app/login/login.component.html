@@ -1,3 +1,10 @@
-<p>
-  login works!
-</p>
+<h2>Se connecter</h2>
+
+<form (ngSubmit)="loginSubmit()">
+
+  <input [(ngModel)]="loginForm.email" name="email" type="email" id="email" placeholder="Mon adresse mail">
+
+  <input [(ngModel)]="loginForm.loginPassword" name="loginPassword" type="password" id="password" placeholder="Mon mot de passe">
+
+  <button>Entrer</button>
+</form>

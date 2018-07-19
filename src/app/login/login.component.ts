@@ -1,15 +1,29 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit } from "@angular/core";
+import { LoginSubmission, AuthService } from "../api/auth.service";
+import { nextTick } from "q";
+import { Router } from "@angular/router";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  selector: "login",
+  templateUrl: "./login.component.html",
+  styleUrls: ["./login.component.css"]
 })
 export class LoginComponent implements OnInit {
+  loginForm: LoginSubmission = new LoginSubmission();
 
-  constructor() { }
+  constructor(public myAuthServ: AuthService, public myRouterServ: Router) {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  loginSubmit() {
+    this.myAuthServ
+      .postLogin(this.loginForm)
+      .then(response => {
+        this.myRouterServ.navigateByUrl("/");
+      })
+      .catch(err => {
+        alert("There was a problem loging in :o :o");
+        nextTick(err);
+      });
   }
-
 }
