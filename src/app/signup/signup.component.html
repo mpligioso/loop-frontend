@@ -1,0 +1,23 @@
+<h2>Sign up</h2>
+
+<form (ngSubmit)="signupSubmit()">
+
+  <input [(ngModel)]="signupForm.firstName" name="firstName" id="firstName" type="text" placeholder="Mon prénom">
+
+  <input [(ngModel)]="signupForm.lastName" name="lastName" id="lastName" type="text" placeholder="Mon nom">
+
+  <input [(ngModel)]="signupForm.email" name="email" id="email" type="email" placeholder="Mon adresse mail">
+
+  <input [(ngModel)]="signupForm.originalPassword" name="originalPassword" id="password" type="password" placeholder="Mon mot de passe">
+
+  <input [(ngModel)]="signupForm.phoneNumber" name="phoneNumber" id="phoneNumber" type="text" placeholder="Mon numéro de téléphone">
+
+  <input [(ngModel)]="signupForm.isDriver" type="radio" id="switch_left" name="switch_2" value="true" checked/>
+  <label for="switch_left">Passager</label>
+
+  <input [(ngModel)]="signupForm.isDriver" type="radio" id="switch_right" name="switch_2" value="false" />
+  <label for="switch_right">Conducteur</label>
+
+
+  <button>Submit</button>
+</form>
