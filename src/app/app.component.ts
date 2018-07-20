@@ -6,12 +6,24 @@ import { AuthService } from './api/auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  title = 'Loop';
+  title = 'app';
 
-  constructor(
-    public myAuthServ: AuthService
-  ){
+  constructor(public myAuthServ: AuthService){}
 
+  ngOnInit() {
+    // ask the backend about the login status as soon as the app loads
+    this.myAuthServ.check().catch(err => {
+      alert("We are having trouble connecting. Is your Internet working?");
+      console.log(err);
+    });
+  }
+
+  logoutClick() {
+    this.myAuthServ.logout().catch(err => {
+      alert("Sorry! There was a problem with your log out.");
+      console.log(err);
+    });
   }
 }
