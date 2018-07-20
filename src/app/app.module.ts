@@ -15,9 +15,10 @@ import { RequestsPageComponent } from './requests-page/requests-page.component';
 import { UserProfilePageComponent } from './user-profile-page/user-profile-page.component';
 import { CreateTripComponent } from './create-trip/create-trip.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
-  declarations: [AppComponent, SignupComponent, LoginComponent, LandingPageComponent, DashboardPageComponent, TripDetailsPageComponent, ResultsPageComponent, RequestsPageComponent, UserProfilePageComponent, CreateTripComponent, NotFoundPageComponent],
+  declarations: [AppComponent, SignupComponent, LoginComponent, LandingPageComponent, DashboardPageComponent, TripDetailsPageComponent, ResultsPageComponent, RequestsPageComponent, UserProfilePageComponent, CreateTripComponent, NotFoundPageComponent, SettingsComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
