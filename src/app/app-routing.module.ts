@@ -10,17 +10,19 @@ import { RequestsPageComponent } from "./requests-page/requests-page.component";
 import { UserProfilePageComponent } from "./user-profile-page/user-profile-page.component";
 import { NotFoundPageComponent } from "./not-found-page/not-found-page.component";
 import { TripDetailsPageComponent } from "./trip-details-page/trip-details-page.component";
+import { AuthGuard } from "./guard/auth.guard";
+
 
 const routes: Routes = [
-  { path: "", component: LandingPageComponent},
+  { path: "", component: LandingPageComponent },
   { path: "login", component: LoginComponent },
   { path: "signup", component: SignupComponent },
-  { path: "dashboard", component: DashboardPageComponent},
-  { path: "trip/add", component: CreateTripComponent},
-  { path: "trip/:tripId", component: TripDetailsPageComponent },
-  { path: "results", component: ResultsPageComponent},
-  { path: "requests", component: RequestsPageComponent},
-  { path: "profile/:userId", component: UserProfilePageComponent},
+  { path: "dashboard", component: DashboardPageComponent, canActivate: [AuthGuard] },
+  { path: "trip/add", component: CreateTripComponent, canActivate: [AuthGuard] },
+  { path: "trip/:tripId", component: TripDetailsPageComponent, canActivate: [AuthGuard] },
+  { path: "results", component: ResultsPageComponent, canActivate: [AuthGuard] },
+  { path: "requests", component: RequestsPageComponent, canActivate: [AuthGuard] },
+  { path: "profile/:userId", component: UserProfilePageComponent, canActivate: [AuthGuard] },
   { path: "**", component: NotFoundPageComponent}
 
 ];

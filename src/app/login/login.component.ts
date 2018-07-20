@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
       })
       .catch(err => {
         alert("There was a problem loging in :o :o");
-        nextTick(err);
+        console.log(err);
       });
   }
 }
