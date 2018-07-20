@@ -8,7 +8,7 @@ import { AuthService } from './api/auth.service';
 })
 
 export class AppComponent {
-  title = 'app';
+  title = 'Loop';
 
   constructor(public myAuthServ: AuthService){}
 
