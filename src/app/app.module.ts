@@ -15,6 +15,7 @@ import { RequestsPageComponent } from "./requests-page/requests-page.component";
 import { UserProfilePageComponent } from "./user-profile-page/user-profile-page.component";
 import { CreateTripComponent } from "./create-trip/create-trip.component";
 import { NotFoundPageComponent } from "./not-found-page/not-found-page.component";
+import { TripListComponent } from './dashboard-page/trip-list/trip-list.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import { NotFoundPageComponent } from "./not-found-page/not-found-page.component
     RequestsPageComponent,
     UserProfilePageComponent,
     CreateTripComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    TripListComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
