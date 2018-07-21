@@ -16,7 +16,8 @@ export class AppComponent {
 
   ngOnInit() {
     // ask the backend about the login status as soon as the app loads
-    this.myAuthServ.check().catch(err => {
+    this.myAuthServ.check()
+    .catch(err => {
       alert("We are having trouble connecting. Is your Internet working?");
       console.log(err);
     });
@@ -32,4 +33,5 @@ export class AppComponent {
       console.log(err);
     });
   }
+
 }

@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import { Router } from "@angular/router";
 
 const backendUrl = "http://localhost:3000";
 
@@ -9,7 +10,8 @@ const backendUrl = "http://localhost:3000";
 export class AuthService {
   currentUser: User;
 
-  constructor(private myHttpServ: HttpClient) {}
+  constructor(private myHttpServ: HttpClient,
+  private myRouterServ: Router) {}
 
   //POST /api/login
   postLogin(loginInfo: LoginSubmission) {
@@ -60,6 +62,10 @@ export class AuthService {
   isLoggedIn(){
     if (this.currentUser){
       return true
+    }
+    else {
+      this.myRouterServ.navigateByUrl("/login");
+      return false;
     }
   }
 }
