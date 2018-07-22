@@ -1,24 +1,46 @@
 <h2>M'inscrire</h2>
 
-<form (ngSubmit)="signupSubmit()">
+<form [formGroup]="rForm" (ngSubmit)="signupSubmit(rForm.value)">
 
-  <input [(ngModel)]="signupForm.firstName" name="firstName" id="firstName" type="text" placeholder="Mon prénom">
+  <input [(ngModel)]="signupForm.firstName" formControlName="firstName" name="firstName" id="firstName" type="text" placeholder="Mon prénom">
+  <div *ngIf="rForm.controls[ 'firstName'].touched && !rForm.controls[ 'firstName'].valid">Quel est votre prénom ?</div>
 
-  <input [(ngModel)]="signupForm.lastName" name="lastName" id="lastName" type="text" placeholder="Mon nom">
+  <input [(ngModel)]="signupForm.lastName" formControlName="lastName" name="lastName" id="lastName" type="text" placeholder="Mon nom">
+  <div *ngIf="rForm.controls['lastName'].touched && !rForm.controls[ 'lastName'].valid">Quel est votre nom de famille ?</div>
 
-  <input [(ngModel)]="signupForm.phoneNumber" name="phoneNumber" id="phoneNumber" type="text" placeholder="Mon numéro de téléphone">
+  <input [(ngModel)]="signupForm.phoneNumber" formControlName="phoneNumber" name="phoneNumber" id="phoneNumber" type="text"
+    placeholder="Mon numéro de téléphone">
+  <div *ngIf="rForm.controls[ 'phoneNumber'].touched && !rForm.controls[ 'phoneNumber'].valid">Vos covoitureurs ont besoin de votre mot de passe</div>
 
-  <input [(ngModel)]="signupForm.email" name="email" id="email" type="email" placeholder="Mon adresse mail">
 
-  <input [(ngModel)]="signupForm.originalPassword" name="originalPassword" id="password" type="password" placeholder="Mon mot de passe">
+  <input [(ngModel)]="signupForm.email" formControlName="email" name="email" id="email" type="email" placeholder="Mon adresse mail">
+  <div *ngIf="rForm.controls[ 'email'].touched && !rForm.controls[ 'email'].valid">Votre adresse mail vous permettra de vous connecter.</div>
+
+
+  <input [(ngModel)]="signupForm.originalPassword" formControlName="originalPassword" name="originalPassword" id="password"
+    type="password" placeholder="Mon mot de passe">
+  <div *ngIf="rForm.controls[ 'originalPassword'].touched && !rForm.controls[ 'originalPassword'].valid">Merci de choisir un mot de passe.</div>
 
   <div class="switch-field">
-    <input [(ngModel)]="signupForm.isDriver" type="radio" id="switch_left" name="isDriver" value="true" checked/>
-    <label for="switch_left">Passager</label>
+    <input [(ngModel)]="signupForm.isDriver" formControlName="isDriver" type="radio" id="switch_left" name="isDriver" value="false"
+      checked/>
 
-    <input [(ngModel)]="signupForm.isDriver" type="radio" id="switch_right" name="isDriver" value="false" />
-    <label for="switch_right">Conducteur</label>
+    <label for="switch_left">
+      Passager
+    </label>
+
+    <input [(ngModel)]="signupForm.isDriver" formControlName="isDriver" type="radio" id="switch_right" name="isDriver" value="true"
+    />
+
+    <label for="switch_right">
+      Conducteur
+    </label>
+    <div *ngIf="rForm.controls[ 'isDriver'].touched && !rForm.controls[ 'isDriver'].valid">Etes-vous passager ou conducteur?</div>
+
+
   </div>
 
-  <button>Continuer</button>
+  <input type="submit" value="Continuer">
 </form>
+
+<!-- [disabled]="!rForm.valid" -->

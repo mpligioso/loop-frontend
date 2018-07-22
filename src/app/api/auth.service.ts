@@ -55,6 +55,13 @@ export class AuthService {
         return response;
       });
   }
+
+
+  isLoggedIn(){
+    if (this.currentUser){
+      return true
+    }
+  }
 }
 
 export class User {

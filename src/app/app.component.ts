@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { AuthService } from "./api/auth.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-root",
@@ -7,9 +8,9 @@ import { AuthService } from "./api/auth.service";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  title = "app";
+  title = "Loop";
 
-  constructor(public myAuthServ: AuthService) {}
+  constructor(public myAuthServ: AuthService, public myRouterServ: Router) {}
 
   ngOnInit() {
     // ask the backend about the login status as soon as the app loads
@@ -20,9 +21,14 @@ export class AppComponent {
   }
 
   logoutClick() {
-    this.myAuthServ.logout().catch(err => {
-      alert("Sorry! There was a problem with your log out.");
-      console.log(err);
-    });
+    this.myAuthServ
+      .logout()
+      .then(response => {
+        this.myRouterServ.navigateByUrl("/");
+      })
+      .catch(err => {
+        alert("Sorry! There was a problem with your log out.");
+        console.log(err);
+      });
   }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { LoginSubmission, AuthService } from "../api/auth.service";
 import { nextTick } from "q";
 import { Router } from "@angular/router";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
 @Component({
   selector: "login",
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
       })
       .catch(err => {
         alert("There was a problem loging in :o :o");
-        nextTick(err);
+        console.log(err);
       });
   }
 }

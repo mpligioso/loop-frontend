@@ -3,9 +3,19 @@
 
   <nav>
     <a routerLink="/">home</a> |
-    <a routerLink="/login">login</a> |
-    <a routerLink="/signup">signup</a> |
-    <a routerLink="/dashboard">user dashboard</a> |
+
+    <span *ngIf="myAuthServ.currentUser">
+      <b>Welcome back, {{myAuthServ.currentUser.firstName}}</b> |
+      <a routerLink="/dashboard">user dashboard</a> |
+      <button (click)="logoutClick()">Log Out</button>
+    </span>
+
+    <span *ngIf="!myAuthServ.currentUser">
+      <a routerLink="/login">Log In</a> |
+      <a routerLink="/signup">Sign Up</a>
+      <a routerLink="/settings">Settings</a>
+
+    </span>
   </nav>
 </header>
 
