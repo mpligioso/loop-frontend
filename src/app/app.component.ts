@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 
 export class AppComponent {
-  title = 'Loop';
+  title = 'loop';
 
   constructor(public myAuthServ: AuthService,
   public myRouterServ: Router ){}

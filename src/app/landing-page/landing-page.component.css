@@ -1,0 +1,45 @@
+/* couleurs :
+vert : #5cc9a0, rgb(92, 201, 160)
+rose : fe5d6a, rgb(240, 240, 240)
+bg gris : #F0F0F0, rgb(240, 240, 240)
+
+
+Font : Roboto, Arial, sans-serif; */
+
+body {
+  margin: 0;
+  font-family: 'Roboto';
+}
+
+#top-section {
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../assets/images/landingpgeBG.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 1000px;
+}
+
+#top-section .text {
+  width: 600px;
+  height: 300px;
+  margin: auto;
+  font-size: 2em;
+  color: white;
+}
+
+#top-section .p {
+}
+
+#about {
+  height: 500px;
+}
+
+#team {
+}
+
+#questions {
+}
+
+#contact {
+  height: 500px;
+}

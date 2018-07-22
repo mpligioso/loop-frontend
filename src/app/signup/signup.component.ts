@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
   isDriver: boolean;
 
   constructor(
-    public myAuthServer: AuthService,
+    public myAuthServ: AuthService,
     private myRouterServ: Router,
     private fb: FormBuilder
   ) {
@@ -34,8 +34,7 @@ export class SignupComponent implements OnInit {
         ])
       ],
       email: [
-        null,
-        Validators.compose([Validators.required, Validators.email])
+        null,[Validators.required, Validators.email]
       ],
       originalPassword: [
         null,
@@ -51,13 +50,13 @@ export class SignupComponent implements OnInit {
   ngOnInit() {}
 
   signupSubmit() {
-    this.myAuthServer
+    this.myAuthServ
       .postSignup(this.signupForm)
       .then(response => {
         this.myRouterServ.navigateByUrl("/");
       })
       .catch(err => {
-        alert("Sorry! We couldn't sign you up!");
+        alert("Oups, l'inscription a échoué.");
         console.log(err);
       });
   }

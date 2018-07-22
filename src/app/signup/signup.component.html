@@ -16,13 +16,13 @@
 
   <input [(ngModel)]="signupForm.email" formControlName="email" name="email" id="email" type="email" placeholder="Mon adresse mail">
   <div *ngIf="rForm.controls['email'].touched && !rForm.controls['email'].valid">Votre adresse mail vous permettra de vous connecter.</div>
-  <div *ngIf="rForm.controls['email'].dirty && rForm.controls['email'].hasError('email')">Votre adresse mail n'est pas valide.</div>
+  <div *ngIf="rForm.controls['email'].dirty && rForm.controls['email'].hasError('email')">Votre adresse mail n'est pas valide.</div> 
 
 
   <input [(ngModel)]="signupForm.originalPassword" formControlName="originalPassword" name="originalPassword" id="password"
     type="password" placeholder="Mon mot de passe">
-  <div *ngIf="rForm.controls['originalPassword'].touched && rForm.controls[ 'originalPassword'].pristine">Merci de choisir un mot de passe.</div>
-  <div *ngIf="rForm.controls['originalPassword'].touched && rForm.controls[ 'originalPassword'].hasError('pattern')">Votre mot de passe doit faire au moins 7 caractères et contenir un chiffre.</div>
+  <div *ngIf="rForm.controls['originalPassword'].touched && rForm.controls[ 'originalPassword'].hasError('required')">Merci de choisir un mot de passe.</div>
+  <div *ngIf="rForm.controls['originalPassword'].touched && rForm.controls[ 'originalPassword'].hasError('pattern')">Votre mot de passe doit faire au moins 7 caractères et contenir un chiffre et une majuscule.</div>
 
 
   <div class="switch-field">
