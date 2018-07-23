@@ -16,6 +16,7 @@ import { UserProfilePageComponent } from "./user-profile-page/user-profile-page.
 import { CreateTripComponent } from "./create-trip/create-trip.component";
 import { NotFoundPageComponent } from "./not-found-page/not-found-page.component";
 import { SettingsComponent } from "./settings/settings.component";
+import { TripListComponent } from "./dashboard-page/trip-list/trip-list.component";
 
 @NgModule({
   imports: [
@@ -37,7 +38,8 @@ import { SettingsComponent } from "./settings/settings.component";
     UserProfilePageComponent,
     CreateTripComponent,
     SettingsComponent,
-    NotFoundPageComponent
+    NotFoundPageComponent,
+    TripListComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

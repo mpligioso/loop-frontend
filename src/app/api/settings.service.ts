@@ -27,17 +27,17 @@ export class SettingsService {
 }
 
 export class SettingsSubmission {
-  firstName: string;
-  lastName: string;
-  email: string;
-  phoneNumber: string;
+  firstName: string = "";
+  lastName: string = "";
+  email: string = "";
+  phoneNumber: string = "";
   isDriver: boolean;
-  oldPassword: string;
-  newPassword: string;
-  pictureURL: string;
-  gender: string;
+  oldPassword: string = "";
+  newPassword: string = "";
+  pictureURL: string = "";
+  gender: string = "";
   address: Address;
-  licenseNumber: string;
+  licenseNumber: string = "";
   cars: Array<Car>;
   specificNeedsA: boolean;
   specificNeedsB: boolean;

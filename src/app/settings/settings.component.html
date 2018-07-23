@@ -2,7 +2,7 @@
 
 <h2>Mes données personnelles</h2>
 
-<form [formGroup]="rForm" (ngSubmit)="signupSubmit(rForm.value)">
+<form [formGroup]="rForm" (ngSubmit)="settingsSubmit(rForm.value)">
   <input [(ngModel)]="settingsForm.firstName" formControlName="firstName" name="firstName" id="firstName" type="text" placeholder="Mon prénom"
     value="{{currentUser.firstName}}">
   <div *ngIf="rForm.controls[ 'firstName'].touched && !rForm.controls[ 'firstName'].valid">Quel est votre prénom ?</div>
@@ -33,7 +33,7 @@
   <br>
 
   <!-- if Passenger -->
-  <!-- <fieldset>
+  <fieldset>
 
     <legend>Mes besoins spécifiques</legend>
 
@@ -81,7 +81,7 @@
       <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="fauteuil" type="checkbox">
       <label for="fauteuil">Je me déplace avec un fauteuil</label>
     </div>
-  </fieldset> -->
+  </fieldset>
 
   <input type="submit" value="Enregistrer">
 </form>

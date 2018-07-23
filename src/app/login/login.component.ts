@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { LoginSubmission, AuthService } from "../api/auth.service";
-import { nextTick } from "q";
 import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 
@@ -23,7 +22,7 @@ export class LoginComponent implements OnInit {
         this.myRouterServ.navigateByUrl("/");
       })
       .catch(err => {
-        alert("There was a problem loging in :o :o");
+        alert("Oups...La connexion a échoué.");
         console.log(err);
       });
   }

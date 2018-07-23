@@ -2,19 +2,18 @@
   <h1>{{title}}</h1>
 
   <nav>
-    <a routerLink="/">home</a> |
+    <a routerLink="/">Accueil</a> |
 
     <span *ngIf="myAuthServ.currentUser">
-      <b>Welcome back, {{myAuthServ.currentUser.firstName}}</b> |
-      <a routerLink="/dashboard">user dashboard</a> |
-      <button (click)="logoutClick()">Log Out</button>
+      <b>Bonjour, {{myAuthServ.currentUser.firstName}} !</b> |
+      <a routerLink="/dashboard">Mon tableau de bord</a> |
+      <a routerLink="/settings">Paramètres</a> |
+      <button (click)="logoutClick()">Déconnexion</button>
     </span>
 
     <span *ngIf="!myAuthServ.currentUser">
-      <a routerLink="/login">Log In</a> |
-      <a routerLink="/signup">Sign Up</a>
-      <a routerLink="/settings">Settings</a>
-
+      <a routerLink="/login">Me connecter</a> |
+      <a routerLink="/signup">M'inscrire</a>
     </span>
   </nav>
 </header>

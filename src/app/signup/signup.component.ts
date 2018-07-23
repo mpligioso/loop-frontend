@@ -19,23 +19,30 @@ export class SignupComponent implements OnInit {
   isDriver: boolean;
 
   constructor(
-    public myAuthServer: AuthService,
+    public myAuthServ: AuthService,
     private myRouterServ: Router,
     private fb: FormBuilder
   ) {
     this.rForm = fb.group({
       firstName: [null, Validators.required],
-      lastName: [
+      lastName: [null, Validators.required],
+      phoneNumber: [
         null,
         Validators.compose([
           Validators.required,
-          Validators.minLength(30),
-          Validators.maxLength(500)
+          Validators.pattern("0[0-9]{9}")
         ])
       ],
-      phoneNumber: [null, Validators.required],
-      email: [null, Validators.required],
-      originalPassword: [null, Validators.required],
+      email: [
+        null,[Validators.required, Validators.email]
+      ],
+      originalPassword: [
+        null,
+        Validators.compose([
+          Validators.required,
+          Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{7,}$')
+        ])
+      ],
       isDriver: [null, Validators.required]
     });
   }
@@ -43,13 +50,13 @@ export class SignupComponent implements OnInit {
   ngOnInit() {}
 
   signupSubmit() {
-    this.myAuthServer
+    this.myAuthServ
       .postSignup(this.signupForm)
       .then(response => {
         this.myRouterServ.navigateByUrl("/");
       })
       .catch(err => {
-        alert("Sorry! We couldn't sign you up!");
+        alert("Oups, l'inscription a échoué.");
         console.log(err);
       });
   }

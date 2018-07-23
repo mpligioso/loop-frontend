@@ -1,0 +1,46 @@
+h2, h3, h4 {
+  padding: 0;
+  margin: 0;
+}
+
+.dash {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.dash img {
+  align-self: center;
+}
+
+.user-info {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-end; */
+  width: 45%;
+}
+
+.left {
+  margin-left: 65px;
+}
+
+.user-info span {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.user-info ul {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.user-info li {
+  padding: 30px 10px;
+}
+
+.user-cars {
+  width: 100%;
+}

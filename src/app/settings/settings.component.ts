@@ -7,6 +7,7 @@ import {
 } from "../api/settings.service";
 import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { User, AuthService } from "../api/auth.service";
 
 @Component({
   selector: "app-settings",
@@ -14,6 +15,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
   styleUrls: ["./settings.component.css"]
 })
 export class SettingsComponent implements OnInit {
+  currentUser: User;
   settingsForm: SettingsSubmission = new SettingsSubmission();
   rForm: FormGroup;
   firstName: string;
@@ -32,6 +34,7 @@ export class SettingsComponent implements OnInit {
   constructor(
     public mySettingsServer: SettingsService,
     private myRouterServ: Router,
+    public myAuthServ: AuthService,
     private fb: FormBuilder
   ) {
     this.rForm = fb.group({
@@ -46,12 +49,13 @@ export class SettingsComponent implements OnInit {
       ],
       phoneNumber: [null, Validators.required],
       oldPassword: [null, Validators.required],
-      newPassword: [null, Validators.required],
-
+      newPassword: [null, Validators.required]
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getUserInfo();
+  }
 
   settingsSubmit() {
     this.mySettingsServer
@@ -61,6 +65,17 @@ export class SettingsComponent implements OnInit {
       })
       .catch(err => {
         alert("Sorry! We couldn't sign you up!");
+        console.log(err);
+      });
+  }
+
+  getUserInfo() {
+    this.myAuthServ
+      .check()
+      .then((response: any) => {
+        this.currentUser = response.userDoc;
+      })
+      .catch(err => {
         console.log(err);
       });
   }

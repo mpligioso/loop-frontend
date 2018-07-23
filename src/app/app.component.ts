@@ -8,7 +8,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  title = "Loop";
+  title = "loop";
 
   constructor(public myAuthServ: AuthService, public myRouterServ: Router) {}
 
