@@ -8,20 +8,26 @@
 
     <span>
       <h3>Données personnelles</h3>
-      <b><a href="#">Modifer</a></b>
+      <b>
+        <a href="#">Modifer</a>
+      </b>
     </span>
 
-    <ul>
+    <!-- <ul>
       <li>{{userData?.gender}}</li>
       <li>Adresse: {{userData?.address}}</li>
       <li>Téléphone: {{userData?.phoneNumber}}</li>
       <li>Mail: {{userData?.email}}</li>
-    </ul>
+    </ul> -->
 
-    <div *ngIf="userData?.cars.length > 0" class="user-cars">
+    <!-- <div *ngIf="userData?.cars.length > 0" class="user-cars">
       <span>
-        <h3><i>Mes voitures</i></h3>
-        <b><a href="#">Modifer</a></b>
+        <h3>
+          <i>Mes voitures</i>
+        </h3>
+        <b>
+          <a href="#">Modifer</a>
+        </b>
       </span>
 
       <ul>
@@ -32,8 +38,8 @@
         <li>Nombre de sièges: {{userData?.cars.numberOfSeats}}</li>
       </ul>
     </div>
+  </div> -->
+
   </div>
 
-</div>
-
-<app-trip-list></app-trip-list>
+  <app-trip-list></app-trip-list>

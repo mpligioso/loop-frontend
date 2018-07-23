@@ -64,7 +64,7 @@ export class SettingsComponent implements OnInit {
         this.myRouterServ.navigateByUrl("/dashboard");
       })
       .catch(err => {
-        alert("Sorry! We couldn't sign you up!");
+        alert("Sorry! We couldn't change your settings!");
         console.log(err);
       });
   }
