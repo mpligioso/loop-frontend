@@ -26,6 +26,10 @@ export class TripsService {
 
 export class TripInput {
   startAddress: string;
+  startLatitude: number;
+  startLongitude: number;
+  endLatitude: number;
+  endLongitude: number;
   endAddress: string;
   departDate: Date;
   departHour: string;
