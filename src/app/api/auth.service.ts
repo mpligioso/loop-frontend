@@ -64,7 +64,6 @@ export class AuthService {
       return true
     }
     else {
-      this.myRouterServ.navigateByUrl("/login");
       return false;
     }
   }
