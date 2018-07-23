@@ -43,6 +43,8 @@ export class CreateTripComponent implements OnInit {
         types: ["address"]
       });
 
+      autocompleteDep.setComponentRestrictions({'country': 'fr'});
+
       autocompleteDep.addListener("place_changed", () => {
         this.ngZone.run(() => {
           //get the place result
@@ -62,6 +64,8 @@ export class CreateTripComponent implements OnInit {
       let autocompleteArr = new google.maps.places.Autocomplete(this.searchArrElementRef.nativeElement, {
         types: ["address"]
       });
+
+      autocompleteArr.setComponentRestrictions({'country': 'fr'});
 
       autocompleteArr.addListener("place_changed", () => {
         this.ngZone.run(() => {
