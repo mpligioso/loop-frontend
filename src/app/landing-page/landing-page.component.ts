@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {faSearch, faQuestionCircle, faPaperPlane, faUsers } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-landing-page',
@@ -6,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./landing-page.component.css']
 })
 export class LandingPageComponent implements OnInit {
+  faSearch = faSearch;
+  faUsers = faUsers;
+  faQuestionCircle = faQuestionCircle;
+  faPaperPlane = faPaperPlane;
+
+
+
 
   constructor() { }
 
