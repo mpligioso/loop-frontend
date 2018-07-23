@@ -3,7 +3,6 @@
 <div class="form-group">
   <label for="departAddress">Mon point de départ :</label>
   <input 
-  [(ngModel)]="tripForm.startAddress" 
   type="text" 
   name="departAddress" 
   id="departAddress"
@@ -15,13 +14,10 @@
   #searchDep 
   [formControl]="searchControl">
 </div>
-
-   
  
 
   <label for="arrivalAddress">Mon point d'arrivée :</label>
-  <input
-  [(ngModel)]="tripForm.endAddress" 
+  <input 
   type="text" 
   name="arrivalAddress.string" 
   id="arrivalAddress"

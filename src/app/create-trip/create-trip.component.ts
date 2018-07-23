@@ -47,7 +47,8 @@ export class CreateTripComponent implements OnInit {
 
       autocompleteDep.addListener("place_changed", () => {
         this.ngZone.run(() => {
-          //get the place result
+
+          //get the arrival place result
           let placeDep: google.maps.places.PlaceResult = autocompleteDep.getPlace();
 
           //verify result
@@ -55,9 +56,10 @@ export class CreateTripComponent implements OnInit {
             return;
           }
 
-          //set departure address latitude, longitude
+          //set departure address string, latitude, longitude
           this.tripForm.startLatitude = placeDep.geometry.location.lat();
           this.tripForm.startLongitude = placeDep.geometry.location.lng();
+          this.tripForm.startAddress = placeDep.formatted_address;
         });
       });
 
@@ -69,17 +71,19 @@ export class CreateTripComponent implements OnInit {
 
       autocompleteArr.addListener("place_changed", () => {
         this.ngZone.run(() => {
-          //get the place result
-          let place: google.maps.places.PlaceResult = autocompleteArr.getPlace();
+
+          //get the arrival place result
+          let placeArr: google.maps.places.PlaceResult = autocompleteArr.getPlace();
 
           //verify result
-          if (place.geometry === undefined || place.geometry === null) {
+          if (placeArr.geometry === undefined || placeArr.geometry === null) {
             return;
           }
 
-          //set arrival address latitude, longitude
-          this.tripForm.endLatitude = place.geometry.location.lat();
-          this.tripForm.endLongitude = place.geometry.location.lng();
+          //set arrival address string, latitude, longitude
+          this.tripForm.endLatitude = placeArr.geometry.location.lat();
+          this.tripForm.endLongitude = placeArr.geometry.location.lng();
+          this.tripForm.endAddress = placeArr.formatted_address;
         });
       });
 
@@ -89,7 +93,6 @@ export class CreateTripComponent implements OnInit {
 
 
   tripSubmit() {
-    console.log(this.tripForm.startLatitude, this.tripForm.startLongitude, this.tripForm.endLatitude, this.tripForm.endLongitude)
     this.myTripsServ
       .postTrip(this.tripForm)
       .then(() => {
