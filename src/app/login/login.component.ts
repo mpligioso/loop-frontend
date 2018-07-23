@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     this.myAuthServ
       .postLogin(this.loginForm)
       .then(response => {
-        this.myRouterServ.navigateByUrl("/");
+        this.myRouterServ.navigateByUrl("/dashboard");
       })
       .catch(err => {
         alert("Oups...La connexion a échoué.");
