@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { TripsService, TripSubmission, TripInput } from '../api/trips.service';
+import { TripsService, TripInput } from '../api/trips.service';
 
 @Component({
   selector: 'app-create-trip',
@@ -9,7 +9,7 @@ import { TripsService, TripSubmission, TripInput } from '../api/trips.service';
 })
 export class CreateTripComponent implements OnInit {
   tripForm: TripInput = new TripInput();
-  tripBackend: TripSubmission = new TripSubmission();
+  //tripBackend: TripSubmission = new TripSubmission();
 
   constructor(private myTripsServ: TripsService,
   private myRouterServ: Router) { }
@@ -20,18 +20,18 @@ export class CreateTripComponent implements OnInit {
 
   tripSubmit() {
 
-    console.log("TRIPFORM :", this.tripForm);
-    console.log(this.tripForm.departAddress);
+    // console.log("TRIPFORM :", this.tripForm);
+    // console.log(this.tripForm.departAddress);
 
-    this.tripBackend.departAddress.string = this.tripForm.departAddress;
-    this.tripBackend.arrivalAddress.string = this.tripForm.arrivalAddress;
-    this.tripBackend.departDate = this.tripForm.departDate;
-    this.tripBackend.departTime = `${this.tripForm.departHour}:${this.tripForm.departMin}:00`;
-    this.tripBackend.comment = this.tripForm.comment;
+    // this.tripBackend.departAddress.string = this.tripForm.departAddress;
+    // this.tripBackend.arrivalAddress.string = this.tripForm.arrivalAddress;
+    // this.tripBackend.departDate = this.tripForm.departDate;
+    // this.tripBackend.departTime = `${this.tripForm.departHour}:${this.tripForm.departMin}:00`;
+    // this.tripBackend.comment = this.tripForm.comment;
 
-    console.log("TRIPBACKEND :", this.tripBackend);
+    // console.log("TRIPBACKEND :", this.tripBackend);
     this.myTripsServ
-      .postTrip(this.tripBackend)
+      .postTrip(this.tripForm)
       .then(() => {
         this.myRouterServ.navigateByUrl(`/dashboard`);
         this.tripForm = new TripInput();
