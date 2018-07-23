@@ -14,12 +14,9 @@ import { SettingsComponent } from "./settings/settings.component";
 import { AuthGuard } from "./guard/auth.guard";
 
 const routes: Routes = [
-  { path: "", component: LandingPageComponent,
-  canActivate: [AuthGuard]},
-  { path: "login", component: LoginComponent,
-  canActivate: [AuthGuard] },
-  { path: "signup", component: SignupComponent,
-  canActivate: [AuthGuard] },
+  { path: "", component: LandingPageComponent},
+  { path: "login", component: LoginComponent },
+  { path: "signup", component: SignupComponent },
   { path: "settings", component: SettingsComponent,
   canActivate: [AuthGuard]},
   {
