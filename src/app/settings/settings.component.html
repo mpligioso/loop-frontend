@@ -1,0 +1,90 @@
+<!-- Je ne change pas l'adresse mail pour le moment -->
+
+<h2>Mes données personnelles</h2>
+
+<form [formGroup]="rForm" (ngSubmit)="settingsSubmit(rForm.value)">
+  <input [(ngModel)]="settingsForm.firstName" formControlName="firstName" name="firstName" id="firstName" type="text" placeholder="Mon prénom"
+    value="{{currentUser.firstName}}">
+  <div *ngIf="rForm.controls[ 'firstName'].touched && !rForm.controls[ 'firstName'].valid">Quel est votre prénom ?</div>
+  <br>
+
+  <input [(ngModel)]="settingsForm.lastName" formControlName="lastName" name="lastName" id="lastName" type="text" placeholder="Mon nom"
+    value="{{currentUser.lastName}}">
+  <div *ngIf="rForm.controls['lastName'].touched && !rForm.controls[ 'lastName'].valid">Quel est votre nom de famille ?</div>
+  <br>
+
+  <label for="exampleFormControlFile1">Change Your Picture</label>
+  <input [(ngModel)]="settingsForm.pictureURL" formControlName="pictureURL" name="pictureURL" id="pictureURL" type="file">
+  <br>
+
+  <input [(ngModel)]="settingsForm.phoneNumber" formControlName="phoneNumber" name="phoneNumber" id="phoneNumber" type="text"
+    placeholder="Mon numéro de téléphone" value="{{currentUser.phoneNumber}}">
+  <div *ngIf="rForm.controls[ 'phoneNumber'].touched && !rForm.controls[ 'phoneNumber'].valid">Vos covoitureurs ont besoin de votre numéro de téléphone</div>
+  <br>
+
+  <input [(ngModel)]="settingsForm.oldPassword" formControlName="oldPassword" name="oldPassword" id="oldPassword" type="password"
+    placeholder="Mot de passe actuel">
+  <div *ngIf="rForm.controls[ 'oldPassword'].touched && !rForm.controls[ 'oldPassword'].valid">Merci de renseigner votre mot de passe actuel.</div>
+  <br>
+
+  <input [(ngModel)]="settingsForm.newPassword" formControlName="newPassword" name="newPassword" id="newPassword" type="password"
+    placeholder="Nouveau mot de passe">
+  <div *ngIf="rForm.controls[ 'newPassword'].touched && !rForm.controls[ 'newPassword'].valid">Merci de choisir un nouveau mot de passe.</div>
+  <br>
+
+  <!-- if Passenger -->
+  <fieldset>
+
+    <legend>Mes besoins spécifiques</legend>
+
+    <div>
+      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="debout" type="checkbox">
+      <label for="debout">J'ai besoin d'aide pour me mettre debout</label>
+    </div>
+
+    <div>
+      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="asseoir" type="checkbox">
+      <label for="asseoir">J'ai besoin d'aide pour m'asseoir</label>
+    </div>
+
+    <div>
+      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="mail" type="checkbox">
+      <label for="mail">J'ai besoin d'aide pour utiliser un téléphone ou une boîte mail</label>
+    </div>
+
+    <div>
+      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="voir" type="checkbox">
+      <label for="voir">J'ai des difficultés à voir</label>
+    </div>
+
+    <div>
+      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="marcher" type="checkbox">
+      <label for="marcher">J'ai des difficultés à marcher</label>
+    </div>
+
+    <div>
+      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="entendre" type="checkbox">
+      <label for="entendre">J'ai des difficultés à entendre</label>
+    </div>
+
+    <div>
+      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="parler" type="checkbox">
+      <label for="parler">J'ai des difficultés à parler</label>
+    </div>
+
+    <div>
+      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="animal" type="checkbox">
+      <label for="animal">Je me déplace avec un animal d'assistance</label>
+    </div>
+
+    <div>
+      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="fauteuil" type="checkbox">
+      <label for="fauteuil">Je me déplace avec un fauteuil</label>
+    </div>
+  </fieldset>
+
+  <input type="submit" value="Enregistrer">
+</form>
+
+
+<!-- [disabled]="!rForm.valid" -->

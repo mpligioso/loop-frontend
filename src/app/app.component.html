@@ -1,5 +1,5 @@
 <header>
-    <h1>{{title}}</h1>
+  <h1>{{title}}</h1>
 
   <nav>
     <a routerLink="/">Accueil</a> |
@@ -7,6 +7,7 @@
     <span *ngIf="myAuthServ.currentUser">
       <b>Bonjour, {{myAuthServ.currentUser.firstName}} !</b> |
       <a routerLink="/dashboard">Mon tableau de bord</a> |
+      <a routerLink="/settings">Paramètres</a> |
       <button (click)="logoutClick()">Déconnexion</button>
     </span>
 

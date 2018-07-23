@@ -15,7 +15,8 @@ import { RequestsPageComponent } from "./requests-page/requests-page.component";
 import { UserProfilePageComponent } from "./user-profile-page/user-profile-page.component";
 import { CreateTripComponent } from "./create-trip/create-trip.component";
 import { NotFoundPageComponent } from "./not-found-page/not-found-page.component";
-import { TripListComponent } from './dashboard-page/trip-list/trip-list.component';
+import { SettingsComponent } from "./settings/settings.component";
+import { TripListComponent } from "./dashboard-page/trip-list/trip-list.component";
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import { TripListComponent } from './dashboard-page/trip-list/trip-list.componen
     RequestsPageComponent,
     UserProfilePageComponent,
     CreateTripComponent,
+    SettingsComponent,
     NotFoundPageComponent,
     TripListComponent
   ],
