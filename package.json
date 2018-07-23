@@ -20,7 +20,11 @@
     "@angular/platform-browser": "^6.0.3",
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
+    "@fortawesome/angular-fontawesome": "^0.1.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.1",
+    "@fortawesome/free-solid-svg-icons": "^5.1.1",
     "core-js": "^2.5.4",
+    "font-awesome": "^4.7.0",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"
   },

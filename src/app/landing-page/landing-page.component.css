@@ -6,9 +6,18 @@ bg gris : #F0F0F0, rgb(240, 240, 240)
 
 Font : Roboto, Arial, sans-serif; */
 
-body {
-  margin: 0;
-  font-family: "Roboto";
+@import "https://fonts.googleapis.com/css?family=Roboto";
+@import "~font-awesome/css/font-awesome.css";
+
+
+.col-3 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.col {
+  text-align: center;
+  width: 30%;
 }
 
 #top-section {
@@ -19,6 +28,14 @@ body {
   height: 1000px;
 }
 
+.text-area {
+  max-width: 1920px;
+  min-width: 920px;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
 #top-section .text {
   width: 600px;
   height: 300px;
@@ -27,27 +44,17 @@ body {
   color: white;
 }
 
-#top-section .p {
-}
+
 
 #about {
-  height: 500px;
-  margin: 2vh 10vw;
+  /* height: 500px; */
 }
 
-#about > div {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-#about > div > div {
-  flex-grow: 1;
-  width: 33%;
-}
 
 #team {
-  background-color: #f0f0f0;
+  background-color:  #F0F0F0;
 }
+
 
 #questions {
 }
@@ -55,20 +62,14 @@ body {
 #contact {
   background-color: #5cc9a0;
   height: 500px;
-  display: flex;
-  flex-direction: column;
+  background-color: #5cc9a0;
 }
 
-form {
+#contact form {
+  width:50%;
+  min-width:600px;
   display: flex;
   flex-direction: column;
-  width: 30vw;
-}
-
-button {
-  background-color: #fe5d6a;
-  color: white;
-  border: none;
-  width: 100px;
-  height: 40px;
+  height: 280px;
+  justify-content: space-around;
 }
