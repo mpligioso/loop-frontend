@@ -6,9 +6,17 @@ bg gris : #F0F0F0, rgb(240, 240, 240)
 
 Font : Roboto, Arial, sans-serif; */
 
-body {
-  margin: 0;
-  font-family: 'Roboto';
+@import "https://fonts.googleapis.com/css?family=Roboto";
+
+
+.col-3 {
+  display: flex;
+  justify-content: space-between;
+}
+
+.col {
+  text-align: center;
+  width: 30%;
 }
 
 #top-section {
@@ -19,6 +27,14 @@ body {
   height: 1000px;
 }
 
+.text-area {
+  max-width: 1920px;
+  min-width: 920px;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+
 #top-section .text {
   width: 600px;
   height: 300px;
@@ -27,19 +43,31 @@ body {
   color: white;
 }
 
-#top-section .p {
-}
+
 
 #about {
-  height: 500px;
+  /* height: 500px; */
 }
 
+
 #team {
+  background-color:  #F0F0F0;
 }
+
 
 #questions {
 }
 
 #contact {
   height: 500px;
+  background-color: #5cc9a0;
+}
+
+#contact form {
+  width:50%;
+  min-width:600px;
+  display: flex;
+  flex-direction: column;
+  height: 280px;
+  justify-content: space-around;
 }

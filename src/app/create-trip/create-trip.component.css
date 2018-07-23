@@ -1,0 +1,13 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form .departTime label {
+  padding: 5px;
+}
+
+form .departTime p {
+  display: inline;
+  padding: 5px;
+}
