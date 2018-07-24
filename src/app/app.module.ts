@@ -2,8 +2,8 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AgmCoreModule } from '@agm/core';
+import { FontAwesomeModule } from "@fortawesome/angular-fontawesome";
+import { AgmCoreModule } from "@agm/core";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -20,7 +20,6 @@ import { NotFoundPageComponent } from "./not-found-page/not-found-page.component
 import { SettingsComponent } from "./settings/settings.component";
 import { TripListComponent } from "./dashboard-page/trip-list/trip-list.component";
 import { environment } from "../environments/environment";
-
 
 @NgModule({
   imports: [

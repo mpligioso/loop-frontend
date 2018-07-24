@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { User, AuthService } from "../api/auth.service";
+import { Router } from "../../../node_modules/@angular/router";
 
 @Component({
   selector: "app-user-profile-page",
@@ -7,22 +8,20 @@ import { User, AuthService } from "../api/auth.service";
   styleUrls: ["./user-profile-page.component.css"]
 })
 export class UserProfilePageComponent implements OnInit {
-  userData: User;
-
-  constructor(public myAuthServ: AuthService) {}
-
+  // id: string;
+  // userItem: User;
+  constructor(private myRouterServ: Router) {}
   ngOnInit() {
-    this.getUserInfo();
+    // this.getUserInfo();
   }
-
-  getUserInfo() {
-    this.myAuthServ
-      .check()
-      .then((response: any) => {
-        this.userData = response.userDoc;
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  }
+  // getUserInfo() {
+  //   this.myAuthServ
+  //     .check()
+  //     .then((response: any) => {
+  //       this.userData = response.userDoc;
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // }
 }

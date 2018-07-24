@@ -16,23 +16,21 @@ export class SettingsService {
   // POST /api/login
   postSettings(settingsInfo: SettingsSubmission) {
     return this.myHttpServ
-      .post(`${backendUrl}/api/settings`, settingsInfo, {
+      .put(`${backendUrl}/api/settings`, settingsInfo, {
         withCredentials: true
       })
-      .toPromise()
-      .then((response: any) => {
-        this.currentUser = response.userDoc;
-        return response;
-      });
+      .toPromise();
+    // .then((response: any) => {
+    //   this.currentUser = response.userDoc;
+    //   return response;
+    // });
   }
 }
 
 export class SettingsSubmission {
   firstName: string = "";
   lastName: string = "";
-  email: string = "";
   phoneNumber: string = "";
-  isDriver: boolean;
   oldPassword: string = "";
   newPassword: string = "";
   pictureURL: string = "";
@@ -40,8 +38,8 @@ export class SettingsSubmission {
   address: Address;
   licenseNumber: string = "";
   cars: Array<Car>;
-  specificNeedsA: boolean;
-  specificNeedsB: boolean;
+  specificNeedsA: Array<string> = [];
+  specificNeedsB: string;
 }
 
 export class Address {
