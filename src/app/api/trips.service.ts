@@ -36,3 +36,19 @@ export class TripInput {
   departMin: string;
   comment: string;
 }
+
+export class Trip {
+  _id: string;
+  user: string;
+  departDateAndTime: Date;
+  endLocation: Location;
+  startLocation: Location;
+  comment: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export class Location {
+  string: string;
+  coordinates: Array<number>
+}

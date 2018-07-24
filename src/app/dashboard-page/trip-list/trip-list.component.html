@@ -8,11 +8,11 @@
 </span>
 
 <div>
-  <ul>
-    <li>START CITY - END CITY</li>
-    <li>DATE</li>
+  <ul *ngFor="let trip of tripData">
+    <li>{{trip?.startLocation.string}} -{{trip?.endLocation.string}}</li>
+    <li>{{trip?.departDateAndTime}}</li>
     <li>TIME</li>
     <li>OTHER USER INVOLVED</li>
-    <li><a routerLink="/trip/999">Détails</a></li>
+    <li><a routerLink="/trip/{{trip._id}}">Détails</a></li>
   </ul>
 </div>
