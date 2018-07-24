@@ -1,3 +1,5 @@
+//Algo matching 
+
 var db = [{
 		city1: "habas, France",
 		city2: "route de pau, orthez, France"
@@ -112,7 +114,7 @@ function calculateAndDisplayRoute(directionsService, directionsDisplay, directio
 
     //2e arg: fonction call back qui permettra d'afficher le nouveau trajet 
     //apres avoir calculé le meilleur itinéraire possible
-    function (response, status) {
+    function (response, status) {	
 			if (status === google.maps.DirectionsStatus.OK) {
 				console.log(response);
         var dur = 0;

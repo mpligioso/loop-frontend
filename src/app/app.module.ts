@@ -24,7 +24,7 @@ import { environment } from "../environments/environment";
 @NgModule({
   imports: [
     AgmCoreModule.forRoot({
-      apiKey: "AIzaSyAw9MA2YwQlhDywGiTNQqEJrAJVRS1ZCZg",
+      apiKey: environment.GOOGLE_MAP_API_KEY,
       libraries: ["places"]
     }),
     FontAwesomeModule,
