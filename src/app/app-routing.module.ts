@@ -35,7 +35,7 @@ const routes: Routes = [
     canActivate: [AuthGuard]
   },
   {
-    path: "results",
+    path: "trip/:tripId/results",
     component: ResultsPageComponent,
     canActivate: [AuthGuard]
   },

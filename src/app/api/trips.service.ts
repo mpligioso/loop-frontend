@@ -22,6 +22,30 @@ export class TripsService {
         .post(`${backendUrl}/api/trips`, tripInfo, { withCredentials: true })
         .toPromise()
     }
+
+    getTripDetails(tripId){
+      return this.myHttpServ
+        .get(`${backendUrl}/api/trip/${tripId}`, { withCredentials: true })
+        .toPromise()
+    }
+
+    updateTrip(tripId){
+      return this.myHttpServ
+      .put(`${backendUrl}/api/trip/${tripId}`, { withCredentials: true })
+      .toPromise()
+    }
+
+    deleteTrip(tripId){
+      return this.myHttpServ
+      .delete(`${backendUrl}/api/trip/${tripId}`, { withCredentials: true })
+      .toPromise()
+    }
+
+    getTripMatches(tripId){
+      return this.myHttpServ
+      .get(`${backendUrl}/api/trip/${tripId}/matches`, { withCredentials: true })
+      .toPromise()
+    }
 }
 
 export class TripInput {

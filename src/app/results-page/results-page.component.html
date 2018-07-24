@@ -1,3 +1,23 @@
-<p>
-  results-page works!
-</p>
+<div class="flexy">
+  <h1>Vous avez des matchs</h1>
+
+  <p>Your matches are based on the most time effecient trips for both you and your co-rider.</p>
+
+  <div class="match-box" *ngFor="let match of matchResults">
+    <img [src]="match.user.picturlUrl" alt="photo de {{match.user.firstName}}">
+    <section>
+      <h3><a href="/profile/{{match.user._id}}" target="_blank">{{match.user.firstName}}</a> souhaite voyager avec vous!</h3>
+      <a href="/trip/{{match._id}}" target="_blank">
+        <ul>
+          <li>Date: {{match.departDateAndTime | date: "dd/MM/yy"}}</li>
+          <li>Départ: {{match.startLocation.string}}</li>
+          <li>Heure: {{match.departDateAndTime | date: "H:mm"}}</li>
+          <li>Arrivée: {{match.endLocation.string}}</li>
+        </ul>
+      </a>
+    </section>
+
+
+    <button>faire une demande</button>
+  </div>
+</div>

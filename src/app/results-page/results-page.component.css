@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+h3 {
+  padding: 1em 0;
+  font-size: 1.5em;
+}
+
+.flexy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.flexy p {
+  margin: 2em;
+}
+
+.match-box {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 70vw;
+  margin: 0 auto;
+  border: solid cadetblue .2em;
+  margin-bottom: 2em;
+}
+
+.match-box section {
+  width: 40em;
+}
+
+.match-box img {
+  height: 125px;
+}
+
+.match-box ul {
+  display: flex;
+  flex-flow: wrap;
+  width: 600px;
+  flex-grow: inherit;
+  justify-content: flex-start;
+  list-style: none;
+}
+
+.match-box li {
+  width: 16em;
+  height: 4em;
+}
