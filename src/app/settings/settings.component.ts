@@ -17,41 +17,12 @@ import { User, AuthService } from "../api/auth.service";
 export class SettingsComponent implements OnInit {
   currentUser: User;
   settingsForm: SettingsSubmission = new SettingsSubmission();
-  rForm: FormGroup;
-  firstName: string;
-  lastName: string;
-  phoneNumber: string;
-  oldPassword: string;
-  newPassword: string;
-  pictureURL: string;
-  gender: string;
-  address: Address;
-  licenseNumber: string;
-  cars: Array<Car>;
-  specificNeedsA: boolean;
-  specificNeedsB: boolean;
 
   constructor(
     public mySettingsServer: SettingsService,
     private myRouterServ: Router,
-    public myAuthServ: AuthService,
-    private fb: FormBuilder
-  ) {
-    this.rForm = fb.group({
-      firstName: [null, Validators.required],
-      lastName: [
-        null,
-        Validators.compose([
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(500)
-        ])
-      ],
-      phoneNumber: [null, Validators.required],
-      oldPassword: [null, Validators.required],
-      newPassword: [null, Validators.required]
-    });
-  }
+    public myAuthServ: AuthService
+  ) {}
 
   ngOnInit() {
     this.getUserInfo();
