@@ -9,7 +9,6 @@ Font : Roboto, Arial, sans-serif; */
 @import "https://fonts.googleapis.com/css?family=Roboto";
 @import "~font-awesome/css/font-awesome.css";
 
-
 .col-3 {
   display: flex;
   justify-content: space-between;
@@ -22,7 +21,7 @@ Font : Roboto, Arial, sans-serif; */
 
 #top-section {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url("../../assets/images/landingpgeBG.jpg");
+    url("../../assets/images/newlandingpageBG.jpg");
   background-position: center;
   background-size: cover;
   height: 1000px;
@@ -44,17 +43,13 @@ Font : Roboto, Arial, sans-serif; */
   color: white;
 }
 
-
-
 #about {
   /* height: 500px; */
 }
 
-
 #team {
-  background-color:  #F0F0F0;
+  background-color: #f0f0f0;
 }
-
 
 #questions {
 }
@@ -66,10 +61,24 @@ Font : Roboto, Arial, sans-serif; */
 }
 
 #contact form {
-  width:50%;
-  min-width:600px;
+  width: 50%;
+  min-width: 600px;
   display: flex;
   flex-direction: column;
   height: 280px;
   justify-content: space-around;
+}
+
+button {
+  background-color: #fe5d6a;
+  border: none;
+  width: 150px;
+  color: white;
+  font-size: 20px;
+}
+
+button a {
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
 }

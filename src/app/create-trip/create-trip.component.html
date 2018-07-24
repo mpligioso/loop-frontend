@@ -1,9 +1,33 @@
 <form (ngSubmit)="tripSubmit()">
+
+<div class="form-group">
   <label for="departAddress">Mon point de départ :</label>
-  <input [(ngModel)]="tripForm.departAddress" type="text" name="departAddress.string" id="departAddress">
+  <input 
+  type="text" 
+  name="departAddress" 
+  id="departAddress"
+  placeholder="Adresse de départ" 
+  autocorrect="off"
+  autocapitalize="off"
+  spellcheck="off"
+  class="form-control" 
+  #searchDep 
+  [formControl]="searchControl">
+</div>
+ 
 
   <label for="arrivalAddress">Mon point d'arrivée :</label>
-  <input [(ngModel)]="tripForm.arrivalAddress" type="text" name="arrivalAddress.string" id="arrivalAddress">
+  <input 
+  type="text" 
+  name="arrivalAddress.string" 
+  id="arrivalAddress"
+  placeholder="Adresse d'arrivée" 
+  autocorrect="off"
+  autocapitalize="off"
+  spellcheck="off"
+  class="form-control" 
+  #searchArr
+  [formControl]="searchControl">
 
   <div class="date">
   <label for="departDate">Date :</label>

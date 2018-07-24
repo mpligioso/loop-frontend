@@ -3,7 +3,6 @@ import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 
 import { environment } from "../../environments/environment";
-
 const { backendUrl } = environment;
 
 @Injectable({
@@ -12,8 +11,7 @@ const { backendUrl } = environment;
 export class AuthService {
   currentUser: User;
 
-  constructor(private myHttpServ: HttpClient,
-  private myRouterServ: Router) {}
+  constructor(private myHttpServ: HttpClient, private myRouterServ: Router) {}
 
   //POST /api/login
   postLogin(loginInfo: LoginSubmission) {
@@ -60,12 +58,10 @@ export class AuthService {
       });
   }
 
-
-  isLoggedIn(){
-    if (this.currentUser){
-      return true
-    }
-    else {
+  isLoggedIn() {
+    if (this.currentUser) {
+      return true;
+    } else {
       return false;
     }
   }

@@ -1,7 +1,7 @@
 <h2>M'inscrire</h2>
 
-<form [formGroup]="rForm" (ngSubmit)="signupSubmit(rForm.value)">
-
+<form [formGroup]="rForm" (ngSubmit)="signupSubmit()">
+  <!-- (rForm.value) -->
   <input [(ngModel)]="signupForm.firstName" formControlName="firstName" name="firstName" id="firstName" type="text" placeholder="Mon prénom">
   <div *ngIf="rForm.controls['firstName'].touched && !rForm.controls[ 'firstName'].valid">Quel est votre prénom ?</div>
 
@@ -16,7 +16,7 @@
 
   <input [(ngModel)]="signupForm.email" formControlName="email" name="email" id="email" type="email" placeholder="Mon adresse mail">
   <div *ngIf="rForm.controls['email'].touched && !rForm.controls['email'].valid">Votre adresse mail vous permettra de vous connecter.</div>
-  <div *ngIf="rForm.controls['email'].dirty && rForm.controls['email'].hasError('email')">Votre adresse mail n'est pas valide.</div> 
+  <div *ngIf="rForm.controls['email'].dirty && rForm.controls['email'].hasError('email')">Votre adresse mail n'est pas valide.</div>
 
 
   <input [(ngModel)]="signupForm.originalPassword" formControlName="originalPassword" name="originalPassword" id="password"

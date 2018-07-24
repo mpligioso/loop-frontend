@@ -3,7 +3,6 @@ import { HttpClient } from "@angular/common/http";
 import { User } from "./auth.service";
 
 import { environment } from "../../environments/environment";
-
 const { backendUrl } = environment;
 
 @Injectable({
