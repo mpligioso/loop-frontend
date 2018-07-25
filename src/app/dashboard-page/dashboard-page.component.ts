@@ -18,6 +18,7 @@ export class DashboardPageComponent implements OnInit {
 
   ngOnInit() {
     this.getUserInfo();
+    console.log(userData);
     // this.getUserTrips();
   }
 

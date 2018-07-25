@@ -1,53 +1,62 @@
 <div class="dash">
-  <!-- <img [src]="userData?.pictureURL"> -->
-  <img src="../assets/images/logo.png" alt="Photo de Profil">
+    <!-- <img [src]="userData?.pictureURL"> -->
+    <img src="../assets/images/logo.png" alt="Photo de Profil">
 
 
-  <div class="user-info left">
-    <h1>Bonjour, {{userData?.firstName}} {{userData?.lastName}}!</h1>
+    <div class="user-info left">
+        <h1>Bonjour, {{userData?.firstName}} {{userData?.lastName}}!</h1>
 
-    <span>
-      <h3>Données personnelles</h3>
-      <b>
-        <a routerLink="/settings">Modifier</a>
-      </b>
-    </span>
+        <span>
+            <h3>Données personnelles</h3>
+            <b>
+                <a routerLink="/settings">Modifier</a>
+            </b>
+        </span>
 
-    <ul>
-      <li>{{userData?.gender}}</li>
-      <li>Adresse: {{userData?.address}}</li>
-      <li>Téléphone: {{userData?.phoneNumber}}</li>
-      <li>Mail: {{userData?.email}}</li>
-      <li *ngIf="userData.isDriver">Numéro de permis: {{userData?.licenseNumber}}</li>
-      <li>Password: ********</li>
-    </ul>
+        <ul>
+            <li>{{userData?.gender}}</li>
+            <li>Adresse: {{userData?.address}}</li>
+            <li>Téléphone: {{userData?.phoneNumber}}</li>
+            <li>Mail: {{userData?.email}}</li>
+            <li *ngIf="userData?.isDriver">Numéro de permis: {{userData?.licenseNumber}}</li>
+            <li>Password: ********</li>
+        </ul>
 
 
-    <div *ngIf="userData?.cars.length > 0" class="user-cars">
-      <span>
-        <h3>
-          <i>Mes voitures</i>
-        </h3>
-        <b>
-          <a routerLink="/settings">Modifier</a>
-        </b>
-      </span>
+        <div *ngIf="userData?.cars.length > 0" class="user-cars">
+            <span>
+                <h3>
+                    <i>Mes voitures</i>
+                </h3>
+                <b>
+                    <a routerLink="/settings">Modifier</a>
+                </b>
+            </span>
 
-      <ul *ngFor="let oneCar of userData?.cars">
-        <li>Marque: {{oneCar.brand}}</li>
-        <li>Modèle: {{oneCar.model}}</li>
-        <li>Couleur: {{oneCar.color}}</li>
-        <li>Plaque: {{oneCar.licensePlate}}</li>
-        <li>Nombre de sièges: {{oneCar.numberOfSeats}}</li>
-      </ul>
+            <ul *ngFor="let oneCar of userData?.cars">
+                <li>Marque: {{oneCar.brand}}</li>
+                <li>Modèle: {{oneCar.model}}</li>
+                <li>Couleur: {{oneCar.color}}</li>
+                <li>Plaque: {{oneCar.licensePlate}}</li>
+                <li>Nombre de sièges: {{oneCar.numberOfSeats}}</li>
+            </ul>
+        </div>
+
+        <div *ngIf="!userData?.isDriver">
+            <span>
+                <h3>
+                    <i>Mes besoins spécifiques</i>
+                </h3>
+                <b>
+                    <a routerLink="/settings">Modifier</a>
+                </b>
+            </span>
+            <ul>
+                <li *ngFor="let oneNeed of userData?.specificNeedsA">{{oneNeed}}</li>
+                <li *ngIf="userData?.specificNeedsB.length > 0">{{userData?.specificNeedsB}}</li>
+            </ul>
+        </div>
     </div>
-
-    <div *ngIf="!userData.isDriver">
-      <ul>
-
-      </ul>
-    </div>
-  </div>
 </div>
 
 

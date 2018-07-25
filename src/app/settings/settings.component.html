@@ -34,10 +34,6 @@
     type="text" placeholder="Mon numéro de permis" value="{{currentUser?.licenseNumber}}">
   <br>
 
-  <input type="submit" value="Enregistrer">
-</form>
-
-<form>
   <!-- if Passenger -->
   <div *ngIf="!myAuthServ.currentUser.isDriver">
     <label>Mes informations de passager :</label>
@@ -45,55 +41,17 @@
 
       <legend>Mes besoins spécifiques</legend>
 
-      <div>
-        <input [(ngModel)]="settingsForm.specificNeedsA" name="specificNeedsA" id="debout" type="checkbox" value="J'ai besoin d'aide pour me mettre debout">
-        <label for="debout">J'ai besoin d'aide pour me mettre debout</label>
-      </div>
-
-      <div>
-        <input [(ngModel)]="settingsForm.specificNeedsA" name="specificNeedsA" id="asseoir" type="checkbox" value="J'ai besoin d'aide pour m'asseoir">
-        <label for="asseoir">J'ai besoin d'aide pour m'asseoir</label>
-      </div>
-
-      <div>
-        <input [(ngModel)]="settingsForm.specificNeedsA" name="specificNeedsA" id="mail" type="checkbox" value="J'ai besoin d'aide pour utiliser un téléphone ou une boîte mail">
-        <label for="mail">J'ai besoin d'aide pour utiliser un téléphone ou une boîte mail</label>
-      </div>
-
-      <div>
-        <input [(ngModel)]="settingsForm.specificNeedsA" name="specificNeedsA" id="voir" type="checkbox" value="J'ai des difficultés à voir">
-        <label for="voir">J'ai des difficultés à voir</label>
-      </div>
-
-      <div>
-        <input [(ngModel)]="settingsForm.specificNeedsA" name="specificNeedsA" id="marcher" type="checkbox" value="J'ai des difficultés à marcher">
-        <label for="marcher">J'ai des difficultés à marcher</label>
-      </div>
-
-      <div>
-        <input [(ngModel)]="settingsForm.specificNeedsA" name="specificNeedsA" id="entendre" type="checkbox" value="J'ai des difficultés à entendre">
-        <label for="entendre">J'ai des difficultés à entendre</label>
-      </div>
-
-      <div>
-        <input [(ngModel)]="settingsForm.specificNeedsA" name="specificNeedsA" id="parler" type="checkbox" value="J'ai des difficultés à parler">
-        <label for="parler">J'ai des difficultés à parler</label>
-      </div>
-
-      <div>
-        <input [(ngModel)]="settingsForm.specificNeedsA" name="specificNeedsA" id="animal" type="checkbox" value="Je me déplace avec un animal d'assistance">
-        <label for="animal">Je me déplace avec un animal d'assistance</label>
-      </div>
-
-      <div>
-        <input [(ngModel)]="settingsForm.specificNeedsA" name="specificNeedsA" id="fauteuil" type="checkbox" value="Je me déplace avec un fauteuil">
-        <label for="fauteuil">Je me déplace avec un fauteuil</label>
+      <div *ngFor="let oneNeed of needs">
+        <input (change)="checkArray(oneNeed.text)" [checked]="settingsForm.specificNeedsA.includes(oneNeed.text)" [name]="oneNeed.id" [id]="oneNeed.id" type="checkbox" [value]="oneNeed.text">
+        <label [for]="oneNeed.id">{{oneNeed.text}}</label>
       </div>
     </fieldset>
     <label for="comment">Avez-vous un besoin spécifique qui ne fait pas partie de la liste?</label>
     <br>
     <textarea [(ngModel)]="settingsForm.specificNeedsB" name="specificNeedsB" id="specificNeedsB" cols="30" rows="10"></textarea>
   </div>
+
+  <input type="submit" value="Enregistrer">
 </form>
 
 <form (ngSubmit)="carSubmit()">
@@ -115,7 +73,7 @@
 
     <input [(ngModel)]="carForm.numberOfSeats" name="cars.numberOfSeats" id="cars.numberOfSeats" type="number" placeholder="Nombre de sièges">
     <br>
-  </div>
 
-  <button>Ajouter cette voiture</button>
+    <button>Ajouter cette voiture</button>
+  </div>
 </form>
