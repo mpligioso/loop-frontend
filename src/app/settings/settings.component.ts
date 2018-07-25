@@ -3,7 +3,7 @@ import {
   SettingsService,
   SettingsSubmission,
   Address,
-  Car
+  CarSubmission
 } from "../api/settings.service";
 import { Router } from "@angular/router";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
@@ -17,6 +17,7 @@ import { User, AuthService } from "../api/auth.service";
 export class SettingsComponent implements OnInit {
   currentUser: User;
   settingsForm: SettingsSubmission = new SettingsSubmission();
+  carForm: CarSubmission = new CarSubmission();
 
   constructor(
     public mySettingsServer: SettingsService,
@@ -36,6 +37,19 @@ export class SettingsComponent implements OnInit {
       })
       .catch(err => {
         alert("Sorry! We couldn't change your settings!");
+        console.log(err);
+      });
+  }
+
+  carSubmit() {
+    this.mySettingsServer
+      .postCar(this.carForm)
+      .then(response => {
+        alert("Votre voiture a bien été ajoutée!");
+        this.myRouterServ.navigateByUrl("/settings");
+      })
+      .catch(err => {
+        alert("Sorry! We couldn't add your car!");
         console.log(err);
       });
   }

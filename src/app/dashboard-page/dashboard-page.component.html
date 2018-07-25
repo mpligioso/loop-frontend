@@ -9,37 +9,46 @@
     <span>
       <h3>Données personnelles</h3>
       <b>
-        <a routerLink="/settings">Modifer</a>
+        <a routerLink="/settings">Modifier</a>
       </b>
     </span>
 
     <ul>
-      <!-- <li>{{userData?.gender}}</li>
+      <li>{{userData?.gender}}</li>
       <li>Adresse: {{userData?.address}}</li>
       <li>Téléphone: {{userData?.phoneNumber}}</li>
-      <li>Mail: {{userData?.email}}</li> -->
+      <li>Mail: {{userData?.email}}</li>
+      <li *ngIf="userData.isDriver">Numéro de permis: {{userData?.licenseNumber}}</li>
+      <li>Password: ********</li>
     </ul>
 
-    <!-- <div *ngIf="userData?.cars.length > 0" class="user-cars">
+
+    <div *ngIf="userData?.cars.length > 0" class="user-cars">
       <span>
         <h3>
           <i>Mes voitures</i>
         </h3>
         <b>
-          <a href="#">Modifer</a>
+          <a routerLink="/settings">Modifier</a>
         </b>
       </span>
 
-      <ul>
-        <li>Marque: {{userData?.gender}}</li>
-        <li>Modèle: {{userData?.cars.model}}</li>
-        <li>Couleur: {{userData?.cars.color}}</li>
-        <li>Plaque: {{userData?.cars.licensePlate}}</li>
-        <li>Nombre de sièges: {{userData?.cars.numberOfSeats}}</li>
+      <ul *ngFor="let oneCar of userData?.cars">
+        <li>Marque: {{oneCar.brand}}</li>
+        <li>Modèle: {{oneCar.model}}</li>
+        <li>Couleur: {{oneCar.color}}</li>
+        <li>Plaque: {{oneCar.licensePlate}}</li>
+        <li>Nombre de sièges: {{oneCar.numberOfSeats}}</li>
       </ul>
-    </div> -->
-  </div>
+    </div>
 
-  </div>
+    <div *ngIf="!userData.isDriver">
+      <ul>
 
-  <app-trip-list></app-trip-list>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<app-trip-list></app-trip-list>

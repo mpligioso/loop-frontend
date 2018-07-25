@@ -1,47 +1,74 @@
 <h2>M'inscrire</h2>
 
-<form [formGroup]="rForm" (ngSubmit)="signupSubmit()">
-  <!-- (rForm.value) -->
-  <input [(ngModel)]="signupForm.firstName" formControlName="firstName" name="firstName" id="firstName" type="text" placeholder="Mon prénom">
-  <div *ngIf="rForm.controls['firstName'].touched && !rForm.controls[ 'firstName'].valid">Quel est votre prénom ?</div>
+<div class="login-page">
+  <div class="form">
 
-  <input [(ngModel)]="signupForm.lastName" formControlName="lastName" name="lastName" id="lastName" type="text" placeholder="Mon nom">
-  <div *ngIf="rForm.controls['lastName'].touched && !rForm.controls[ 'lastName'].valid">Quel est votre nom de famille ?</div>
+    <form [formGroup]="rForm" (ngSubmit)="signupSubmit()" class="login-form">
+      <!-- (rForm.value) -->
+      <input [(ngModel)]="signupForm.firstName" formControlName="firstName" name="firstName" id="firstName" type="text" placeholder="Mon prénom">
+      <div *ngIf="rForm.controls['firstName'].touched && !rForm.controls[ 'firstName'].valid">Quel est votre prénom ?</div>
 
-  <input [(ngModel)]="signupForm.phoneNumber" formControlName="phoneNumber" name="phoneNumber" id="phoneNumber" type="text"
-    placeholder="Mon numéro de téléphone">
-  <div *ngIf="rForm.controls['phoneNumber'].touched && rForm.controls[ 'phoneNumber'].hasError('required')">Merci de renseigner votre numéro de téléphone.</div>
-  <div *ngIf="rForm.controls['phoneNumber'].touched && rForm.controls[ 'phoneNumber'].hasError('pattern')">Votre numéro doit commencer par 0 et contenir 10 chiffres.</div>
+      <input [(ngModel)]="signupForm.lastName" formControlName="lastName" name="lastName" id="lastName" type="text" placeholder="Mon nom">
+      <div *ngIf="rForm.controls['lastName'].touched && !rForm.controls[ 'lastName'].valid">Quel est votre nom de famille ?</div>
 
-
-  <input [(ngModel)]="signupForm.email" formControlName="email" name="email" id="email" type="email" placeholder="Mon adresse mail">
-  <div *ngIf="rForm.controls['email'].touched && !rForm.controls['email'].valid">Votre adresse mail vous permettra de vous connecter.</div>
-  <div *ngIf="rForm.controls['email'].dirty && rForm.controls['email'].hasError('email')">Votre adresse mail n'est pas valide.</div>
+      <input [(ngModel)]="signupForm.phoneNumber" formControlName="phoneNumber" name="phoneNumber" id="phoneNumber" type="text"
+        placeholder="Mon numéro de téléphone">
+      <div *ngIf="rForm.controls['phoneNumber'].touched && rForm.controls[ 'phoneNumber'].hasError('required')">Merci de renseigner votre numéro de téléphone.</div>
+      <div *ngIf="rForm.controls['phoneNumber'].touched && rForm.controls[ 'phoneNumber'].hasError('pattern')">Votre numéro doit commencer par 0 et contenir 10 chiffres.</div>
 
 
-  <input [(ngModel)]="signupForm.originalPassword" formControlName="originalPassword" name="originalPassword" id="password"
-    type="password" placeholder="Mon mot de passe">
-  <div *ngIf="rForm.controls['originalPassword'].touched && rForm.controls[ 'originalPassword'].hasError('required')">Merci de choisir un mot de passe.</div>
-  <div *ngIf="rForm.controls['originalPassword'].touched && rForm.controls[ 'originalPassword'].hasError('pattern')">Votre mot de passe doit faire au moins 7 caractères et contenir un chiffre et une majuscule.</div>
+      <input [(ngModel)]="signupForm.email" formControlName="email" name="email" id="email" type="email" placeholder="Mon adresse mail">
+      <div *ngIf="rForm.controls['email'].touched && !rForm.controls['email'].valid">Votre adresse mail vous permettra de vous connecter.</div>
+      <div *ngIf="rForm.controls['email'].dirty && rForm.controls['email'].hasError('email')">Votre adresse mail n'est pas valide.</div>
 
 
-  <div class="switch-field">
-    <input [(ngModel)]="signupForm.isDriver" formControlName="isDriver" type="radio" id="switch_left" name="isDriver" value="false"
-      checked/>
+      <input [(ngModel)]="signupForm.originalPassword" formControlName="originalPassword" name="originalPassword" id="password"
+        type="password" placeholder="Mon mot de passe">
+      <div *ngIf="rForm.controls['originalPassword'].touched && rForm.controls[ 'originalPassword'].hasError('required')">Merci de choisir un mot de passe.</div>
+      <div *ngIf="rForm.controls['originalPassword'].touched && rForm.controls[ 'originalPassword'].hasError('pattern')">Votre mot de passe doit faire au moins 7 caractères et contenir un chiffre et une majuscule.</div>
 
-    <label for="switch_left">
-      Passager
-    </label>
 
-    <input [(ngModel)]="signupForm.isDriver" formControlName="isDriver" type="radio" id="switch_right" name="isDriver" value="true"
-    />
+      <div class="switch-field">
+        <input [(ngModel)]="signupForm.isDriver" formControlName="isDriver" type="radio" id="switch_left" name="isDriver" value="false"
+          checked/>
 
-    <label for="switch_right">
-      Conducteur
-    </label>
-    <!-- <div *ngIf="!rForm.controls['isDriver'].valid">Etes-vous passager ou conducteur?</div> -->
+        <label for="switch_left">
+          Passager
+        </label>
+
+        <input [(ngModel)]="signupForm.isDriver" formControlName="isDriver" type="radio" id="switch_right" name="isDriver" value="true"
+        />
+
+        <label for="switch_right">
+          Conducteur
+        </label>
+        <!-- <div *ngIf="!rForm.controls['isDriver'].valid">Etes-vous passager ou conducteur?</div> -->
+
+      </div>
+
+      <button>
+        <input type="submit" value="Continuer" [disabled]="!rForm.valid"> </button>
+      <p class="message">Déjà inscrit?
+        <a routerLink="/login">Se connecter</a>
+      </p>
+    </form>
 
   </div>
-
-  <input type="submit" value="Continuer" [disabled]="!rForm.valid">
-</form>
+</div>
+<!-- <div class="login-page">
+    <div class="form">
+      <form class="register-form">
+        <input type="text" placeholder="name"/>
+        <input type="password" placeholder="password"/>
+        <input type="text" placeholder="email address"/>
+        <button>create</button>
+        <p class="message">Already registered? <a href="#">Sign In</a></p>
+      </form>
+      <form class="login-form">
+        <input type="text" placeholder="username"/>
+        <input type="password" placeholder="password"/>
+        <button>login</button>
+        <p class="message">Not registered? <a href="#">Create an account</a></p>
+      </form>
+    </div>
+  </div> -->

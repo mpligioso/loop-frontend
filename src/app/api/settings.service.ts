@@ -25,6 +25,12 @@ export class SettingsService {
     //   return response;
     // });
   }
+
+  postCar(carInfo: CarSubmission) {
+    return this.myHttpServ
+      .put(`${backendUrl}/api/addCar`, carInfo, { withCredentials: true })
+      .toPromise();
+  }
 }
 
 export class SettingsSubmission {
@@ -37,7 +43,7 @@ export class SettingsSubmission {
   gender: string = "";
   address: Address;
   licenseNumber: string = "";
-  cars: Array<Car>;
+  cars: Array<CarSubmission>;
   specificNeedsA: Array<string> = [];
   specificNeedsB: string;
 }
@@ -48,7 +54,7 @@ export class Address {
   long: number;
 }
 
-export class Car {
+export class CarSubmission {
   brand: string;
   model: string;
   color: string;

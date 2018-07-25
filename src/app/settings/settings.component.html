@@ -1,88 +1,5 @@
 <h2>Mes données personnelles</h2>
 
-<!-- <form [formGroup]="rForm" (ngSubmit)="settingsSubmit(rForm.value)">
-  <input ngModel="settingsForm.firstName" name="firstName" id="firstName" type="text" placeholder="Mon prénom" value="{{currentUser.firstName}}">
-  <br>
-
-  <input ngModel="settingsForm.lastName" name="lastName" id="lastName" type="text" placeholder="Mon nom" value="{{currentUser.lastName}}">
-  <br>
-
-  <label for="exampleFormControlFile1">Change Your Picture</label>
-  <input ngModel="settingsForm.pictureURL" name="pictureURL" id="pictureURL" type="file">
-  <br>
-
-  <input [(ngModel)]="settingsForm.phoneNumber" formControlName="phoneNumber" name="phoneNumber" id="phoneNumber" type="text"
-    placeholder="Mon numéro de téléphone" value="{{currentUser.phoneNumber}}">
-  <div *ngIf="rForm.controls[ 'phoneNumber'].touched && !rForm.controls[ 'phoneNumber'].valid">Vos covoitureurs ont besoin de votre numéro de téléphone</div>
-  <br>
-
-  <input [(ngModel)]="settingsForm.oldPassword" formControlName="oldPassword" name="oldPassword" id="oldPassword" type="password"
-    placeholder="Mot de passe actuel">
-  <div *ngIf="rForm.controls[ 'oldPassword'].touched && !rForm.controls[ 'oldPassword'].valid">Merci de renseigner votre mot de passe actuel.</div>
-  <br>
-
-  <input [(ngModel)]="settingsForm.newPassword" formControlName="newPassword" name="newPassword" id="newPassword" type="password"
-    placeholder="Nouveau mot de passe">
-  <div *ngIf="rForm.controls[ 'newPassword'].touched && !rForm.controls[ 'newPassword'].valid">Merci de choisir un nouveau mot de passe.</div>
-  <br>
-
-  <!-- if Passenger -->
-<!-- <fieldset>
-
-    <legend>Mes besoins spécifiques</legend>
-
-    <div>
-      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="debout" type="checkbox">
-      <label for="debout">J'ai besoin d'aide pour me mettre debout</label>
-    </div>
-
-    <div>
-      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="asseoir" type="checkbox">
-      <label for="asseoir">J'ai besoin d'aide pour m'asseoir</label>
-    </div>
-
-    <div>
-      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="mail" type="checkbox">
-      <label for="mail">J'ai besoin d'aide pour utiliser un téléphone ou une boîte mail</label>
-    </div>
-
-    <div>
-      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="voir" type="checkbox">
-      <label for="voir">J'ai des difficultés à voir</label>
-    </div>
-
-    <div>
-      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="marcher" type="checkbox">
-      <label for="marcher">J'ai des difficultés à marcher</label>
-    </div>
-
-    <div>
-      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="entendre" type="checkbox">
-      <label for="entendre">J'ai des difficultés à entendre</label>
-    </div>
-
-    <div>
-      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="parler" type="checkbox">
-      <label for="parler">J'ai des difficultés à parler</label>
-    </div>
-
-    <div>
-      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="animal" type="checkbox">
-      <label for="animal">Je me déplace avec un animal d'assistance</label>
-    </div>
-
-    <div>
-      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="fauteuil" type="checkbox">
-      <label for="fauteuil">Je me déplace avec un fauteuil</label>
-    </div>
-  </fieldset> -->
-
-<!-- <input type="submit" value="Enregistrer">
-</form> -->-->
-
-
-<!-- [disabled]="!rForm.valid" -->
-
 <form (ngSubmit)="settingsSubmit()">
   <input [(ngModel)]="settingsForm.firstName" name="firstName" id="firstName" type="text" placeholder="Mon prénom" value="{{currentUser?.firstName}}">
   <br>
@@ -90,72 +7,115 @@
   <input [(ngModel)]="settingsForm.lastName" name="lastName" id="lastName" type="text" placeholder="Mon nom" value="{{currentUser?.lastName}}">
   <br>
 
-  <!-- <label for="exampleFormControlFile1">Change Your Picture</label>
-  <input ngModel="settingsForm.pictureURL" name="pictureURL" id="pictureURL" type="file" value="{{currentUser?.pictureURL}}">
-  <br> -->
+  <label for="exampleFormControlFile1">Change Your Picture</label>
+  <input name="pictureURL" id="pictureURL" type="file" value="{{currentUser?.pictureURL}}">
+  <br>
 
   <input [(ngModel)]="settingsForm.phoneNumber" name="phoneNumber" id="phoneNumber" type="text" placeholder="Mon numéro de téléphone"
     value="{{currentUser?.phoneNumber}}">
   <br>
 
-  <input [(ngModel)]="settingsForm.oldPassword" name="oldPassword" id="oldPassword" type="password" placeholder="Mot de passe actuel"
-    value="">
+  <label>Genre?</label>
+  <input [(ngModel)]="settingsForm.gender" name="gender" id="homme" type="radio" value="Homme" />
+  <label for="homme">Homme</label>
+
+  <input [(ngModel)]="settingsForm.gender" name="gender" id="femme" type="radio" value="Femme" />
+  <label for="femme">Femme</label>
   <br>
 
-  <input [(ngModel)]="settingsForm.newPassword" name="newPassword" id="newPassword" type="password" placeholder="Nouveau mot de passe"
-    value="">
+  <input [(ngModel)]="settingsForm.oldPassword" name="oldPassword" id="oldPassword" type="password" placeholder="Mot de passe actuel">
   <br>
 
-  <!-- if Passenger -->
-  <!-- <fieldset>
+  <input [(ngModel)]="settingsForm.newPassword" name="newPassword" id="newPassword" type="password" placeholder="Nouveau mot de passe">
+  <br>
 
-    <legend>Mes besoins spécifiques</legend>
-
-    <div>
-      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="debout" type="checkbox">
-      <label for="debout">J'ai besoin d'aide pour me mettre debout</label>
-    </div>
-
-    <div>
-      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="asseoir" type="checkbox">
-      <label for="asseoir">J'ai besoin d'aide pour m'asseoir</label>
-    </div>
-
-    <div>
-      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="mail" type="checkbox">
-      <label for="mail">J'ai besoin d'aide pour utiliser un téléphone ou une boîte mail</label>
-    </div>
-
-    <div>
-      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="voir" type="checkbox">
-      <label for="voir">J'ai des difficultés à voir</label>
-    </div>
-
-    <div>
-      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="marcher" type="checkbox">
-      <label for="marcher">J'ai des difficultés à marcher</label>
-    </div>
-
-    <div>
-      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="entendre" type="checkbox">
-      <label for="entendre">J'ai des difficultés à entendre</label>
-    </div>
-
-    <div>
-      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="parler" type="checkbox">
-      <label for="parler">J'ai des difficultés à parler</label>
-    </div>
-
-    <div>
-      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="animal" type="checkbox">
-      <label for="animal">Je me déplace avec un animal d'assistance</label>
-    </div>
-
-    <div>
-      <input [(ngModel)]="settingsForm.feature" formControlName="specificNeed" name="specificNeed" id="fauteuil" type="checkbox">
-      <label for="fauteuil">Je me déplace avec un fauteuil</label>
-    </div>
-  </fieldset> -->
+  <label>Mes informations de conducteur :</label>
+  <input *ngIf="myAuthServ.currentUser.isDriver" [(ngModel)]="settingsForm.licenseNumber" name="licenseNumber" id="licenseNumber"
+    type="text" placeholder="Mon numéro de permis" value="{{currentUser?.licenseNumber}}">
+  <br>
 
   <input type="submit" value="Enregistrer">
+</form>
+
+<form>
+  <!-- if Passenger -->
+  <div *ngIf="!myAuthServ.currentUser.isDriver">
+    <label>Mes informations de passager :</label>
+    <fieldset>
+
+      <legend>Mes besoins spécifiques</legend>
+
+      <div>
+        <input [(ngModel)]="settingsForm.specificNeedsA" name="specificNeedsA" id="debout" type="checkbox" value="J'ai besoin d'aide pour me mettre debout">
+        <label for="debout">J'ai besoin d'aide pour me mettre debout</label>
+      </div>
+
+      <div>
+        <input [(ngModel)]="settingsForm.specificNeedsA" name="specificNeedsA" id="asseoir" type="checkbox" value="J'ai besoin d'aide pour m'asseoir">
+        <label for="asseoir">J'ai besoin d'aide pour m'asseoir</label>
+      </div>
+
+      <div>
+        <input [(ngModel)]="settingsForm.specificNeedsA" name="specificNeedsA" id="mail" type="checkbox" value="J'ai besoin d'aide pour utiliser un téléphone ou une boîte mail">
+        <label for="mail">J'ai besoin d'aide pour utiliser un téléphone ou une boîte mail</label>
+      </div>
+
+      <div>
+        <input [(ngModel)]="settingsForm.specificNeedsA" name="specificNeedsA" id="voir" type="checkbox" value="J'ai des difficultés à voir">
+        <label for="voir">J'ai des difficultés à voir</label>
+      </div>
+
+      <div>
+        <input [(ngModel)]="settingsForm.specificNeedsA" name="specificNeedsA" id="marcher" type="checkbox" value="J'ai des difficultés à marcher">
+        <label for="marcher">J'ai des difficultés à marcher</label>
+      </div>
+
+      <div>
+        <input [(ngModel)]="settingsForm.specificNeedsA" name="specificNeedsA" id="entendre" type="checkbox" value="J'ai des difficultés à entendre">
+        <label for="entendre">J'ai des difficultés à entendre</label>
+      </div>
+
+      <div>
+        <input [(ngModel)]="settingsForm.specificNeedsA" name="specificNeedsA" id="parler" type="checkbox" value="J'ai des difficultés à parler">
+        <label for="parler">J'ai des difficultés à parler</label>
+      </div>
+
+      <div>
+        <input [(ngModel)]="settingsForm.specificNeedsA" name="specificNeedsA" id="animal" type="checkbox" value="Je me déplace avec un animal d'assistance">
+        <label for="animal">Je me déplace avec un animal d'assistance</label>
+      </div>
+
+      <div>
+        <input [(ngModel)]="settingsForm.specificNeedsA" name="specificNeedsA" id="fauteuil" type="checkbox" value="Je me déplace avec un fauteuil">
+        <label for="fauteuil">Je me déplace avec un fauteuil</label>
+      </div>
+    </fieldset>
+    <label for="comment">Avez-vous un besoin spécifique qui ne fait pas partie de la liste?</label>
+    <br>
+    <textarea [(ngModel)]="settingsForm.specificNeedsB" name="specificNeedsB" id="specificNeedsB" cols="30" rows="10"></textarea>
+  </div>
+</form>
+
+<form (ngSubmit)="carSubmit()">
+  <!-- if Driver -->
+  <div *ngIf="myAuthServ.currentUser.isDriver">
+
+    <button>Ajouter une voiture</button>
+    <input [(ngModel)]="carForm.brand" name="cars.brand" id="cars.brand" type="text" placeholder="Marque">
+    <br>
+
+    <input [(ngModel)]="carForm.model" name="cars.model" id="cars.model" type="text" placeholder="Modèle">
+    <br>
+
+    <input [(ngModel)]="carForm.color" name="cars.color" id="cars.color" type="text" placeholder="Couleur">
+    <br>
+
+    <input [(ngModel)]="carForm.licensePlate" name="cars.licensePlate" id="cars.licensePlate" type="text" placeholder="Plaque d'immatriculation">
+    <br>
+
+    <input [(ngModel)]="carForm.numberOfSeats" name="cars.numberOfSeats" id="cars.numberOfSeats" type="number" placeholder="Nombre de sièges">
+    <br>
+  </div>
+
+  <button>Ajouter cette voiture</button>
 </form>
