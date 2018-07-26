@@ -24,9 +24,7 @@ export class RequestsPageComponent implements OnInit {
   getUserMatchRequests(){
     this.myMatchServ.getMatchRequests()
       .then((results: Array<Match>) => {
-        console.log(results)
         this.matchData = results;
-        console.log(results[0].acceptedByDriver)
       })
       .catch((err) => {
         console.log(err)
@@ -37,7 +35,7 @@ export class RequestsPageComponent implements OnInit {
     this.myAuthServ
       .check()
       .then((response: any) => {
-        console.log(response)
+        this.userData = response;
       })
       .catch(err => {
         console.log(err);

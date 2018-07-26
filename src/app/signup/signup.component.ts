@@ -53,7 +53,7 @@ export class SignupComponent implements OnInit {
     this.myAuthServ
       .postSignup(this.signupForm)
       .then(response => {
-        this.myRouterServ.navigateByUrl("/");
+        this.myRouterServ.navigateByUrl("/dashboard");
       })
       .catch(err => {
         alert("Oups, l'inscription a échoué.");

@@ -8,7 +8,7 @@
   <p>Accept or remove matches waiting to be confirmed</p>
 
   <div *ngFor="let match of matchData">
-    <div class="match-box" *ngIf="match.driverTripId.user !== userData._id">
+    <div class="match-box" *ngIf="match.driverTripId.user._id !== userData._id">
         <img [src]="match.driverTripId.user.picturlUrl" alt="photo de {{match.driverTripId.user.firstName}}">
         <section>
           <h3>
