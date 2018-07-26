@@ -6,24 +6,20 @@
   <!-- <div *ngIf="matchResults"> -->
     <!-- <div class="match-box" *ngFor="let match of matchResults"> -->
       <div class="match-box">
-      <img [src]="match.trip.user.picturlUrl" alt="photo de {{match.trip.user.firstName}}">
+      <img [src]="match.trip.user.pictureUrl" alt="photo de {{match.trip.user.firstName}}">
       <section>
-        <h3><a href="/profile/{{match.user._id}}" target="_blank">{{match.user.firstName}}</a> souhaite voyager avec vous!</h3>
-        <a href="/trip/{{match._id}}" target="_blank">
+        <h3><a href="/profile/{{match.trip.user._id}}" target="_blank">{{match.trip.user.firstName}}</a> souhaite voyager avec vous!</h3>
+        <a href="/trip/{{match.trip._id}}" target="_blank">
           <ul>
-            <li>Date: {{match.departDateAndTime | date: "dd/MM/yy"}}</li>
-            <li>Départ: {{match.startLocation.string}}</li>
-            <li>Heure: {{match.departDateAndTime | date: "H:mm"}}</li>
-            <li>Arrivée: {{match.endLocation.string}}</li>
+            <li>Date: {{match.trip.departDateAndTime | date: "dd/MM/yy"}}</li>
+            <li>Départ: {{match.trip.startLocation.string}}</li>
+            <li>Heure: {{match.trip.departDateAndTime | date: "H:mm"}}</li>
+            <li>Arrivée: {{match.trip.endLocation.string}}</li>
           </ul>
         </a>
       </section>
 
-      <form>
-        <p>{{match._id}}</p>
-        <input [(ngModel)]="matchId" name="matchId">
-      <button (click)="initMatchReq(match)">faire une demande</button>
-      </form>
+        <button (click)="initMatchReq(match.trip._id)">faire une demande</button>
     </div>
-  <!-- </div> -->
+
 </div>
