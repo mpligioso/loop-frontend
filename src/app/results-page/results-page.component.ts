@@ -62,6 +62,7 @@ export class ResultsPageComponent implements OnInit {
         .then((response) => {
           alert("Votre demande a été envoyée.")
           console.log(response)
+          this.myRouterServ.navigateByUrl("/dashboard")
         })
         .catch((err) => {
           alert("Oups! Nous n'avons pas réussi à envoyer votre demande.")

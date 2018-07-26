@@ -1,4 +1,3 @@
-// <reference types="googlemaps" />
 import {
   Component,
   OnInit,
@@ -11,8 +10,7 @@ import { TripsService, TripInput } from "../api/trips.service";
 import { FormControl } from "@angular/forms";
 import { MapsAPILoader } from "@agm/core";
 import { User, AuthService } from "../api/auth.service";
-//import {} from 
-//import {} from 'googlemaps';
+
 
 @Component({
   selector: "app-create-trip",

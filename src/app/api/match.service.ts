@@ -28,9 +28,9 @@ export class MatchService {
     .toPromise()
   }
 
-  changeMatchStatus(matchId){
+  changeMatchStatus(matchId, isDriver){
     return this.myHttpServ
-    .put(`${backendUrl}/api/match/${matchId}`, {withCredentials: true})
+    .put(`${backendUrl}/api/match/${matchId}`, {isDriver}, {withCredentials: true})
     .toPromise()
   }
 

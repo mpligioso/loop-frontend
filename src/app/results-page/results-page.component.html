@@ -3,21 +3,19 @@
 
   <p>Une personne voyage dans la même direction que vous, dans la même tranche horaire !</p>
 
-  <!-- <div *ngIf="matchResults"> -->
-    <!-- <div class="match-box" *ngFor="let match of matchResults"> -->
       <div class="match-box">
-      <img [src]="match.trip.user.pictureUrl" alt="photo de {{match.trip.user.firstName}}">
-      <section>
-        <h3>Voyagez avec <a href="/profile/{{match.trip.user._id}}" target="_blank">{{match.trip.user.firstName}}</a> !</h3>
-        <a href="/trip/{{match.trip._id}}" target="_blank">
-          <ul>
-            <li>Date: {{match.trip.departDateAndTime | date: "dd/MM/yy"}}</li>
-            <li>Départ: {{match.trip.startLocation.string}}</li>
-            <li>Heure: {{match.trip.departDateAndTime | date: "H:mm"}}</li>
-            <li>Arrivée: {{match.trip.endLocation.string}}</li>
-          </ul>
-        </a>
-      </section>
+        <img [src]="match.trip.user.pictureURL" alt="photo de {{match.trip.user.firstName}}">
+        <section>
+          <h3>Voyagez avec <a href="/profile/{{match.trip.user._id}}" target="_blank">{{match.trip.user.firstName}}</a> !</h3>
+          <a href="/trip/{{match.trip._id}}" target="_blank">
+            <ul>
+              <li>Date: {{match.trip.departDateAndTime | date: "dd/MM/yy"}}</li>
+              <li>Départ: {{match.trip.startLocation.string}}</li>
+              <li>Heure: {{match.trip.departDateAndTime | date: "H:mm"}}</li>
+              <li>Arrivée: {{match.trip.endLocation.string}}</li>
+            </ul>
+          </a>
+        </section>
 
         <button (click)="initMatchReq(match.trip._id)">faire une demande</button>
     </div>

@@ -5,46 +5,48 @@
   <p>Accept or remove matches waiting to be confirmed</p>
 
   <div *ngFor="let match of matchData">
-    <div class="match-box" *ngIf="match.driverTripId.user._id !== userData._id">
-      <img [src]="match.driverTripId.user.picturlUrl" alt="photo de {{match.driverTripId.user.firstName}}">
-      <section>
-        <h3>
-          <a href="/profile/{{match.driverTripId.user._id}}" target="_blank">
-            {{match.driverTripId.user.firstName}}</a> souhaite voyager avec vous pour votre trajet à
-          <a href="/trip/{{match.passengerTripId._id}}">{{match.passengerTripId.endLocation.string}} le {{match.passengerTripId.departDateAndTime | date: "dd/MM/yy"}}</a>
-        </h3>
+    <div *ngIf="!(match.acceptedByDriver && match.acceptedByPassenger)">
+      <div class="match-box" *ngIf="match.driverTripId.user._id !== userData._id">
+        <img [src]="match.driverTripId.user.picturlUrl" alt="photo de {{match.driverTripId.user.firstName}}">
+        <section>
+          <h3>
+            <a href="/profile/{{match.driverTripId.user._id}}" target="_blank">
+              {{match.driverTripId.user.firstName}}</a> souhaite voyager avec vous pour votre trajet à
+            <a href="/trip/{{match.passengerTripId._id}}">{{match.passengerTripId.endLocation.string}} le {{match.passengerTripId.departDateAndTime | date: "dd/MM/yy"}}</a>
+          </h3>
 
-        <a href="/trip/{{match.driverTripId._id}}" target="_blank">
-          <ul>
-            <li>Date: {{match.driverTripId.departDateAndTime | date: "dd/MM/yy"}}</li>
-            <li>Départ: {{match.driverTripId.startLocation.string}}</li>
-            <li>Heure: {{match.driverTripId.departDateAndTime | date: "H:mm"}}</li>
-            <li>Arrivée: {{match.driverTripId.endLocation.string}}</li>
-          </ul>
-        </a>
-      </section>
-      <button *ngIf="match?.acceptedByDriver">accepter la demande</button>
-      <article *ngIf="!match?.acceptedByDriver">requête en attente</article>
-      <button>supprimer la demande</button>
-    </div>
+          <a href="/trip/{{match.driverTripId._id}}" target="_blank">
+            <ul>
+              <li>Date: {{match.driverTripId.departDateAndTime | date: "dd/MM/yy"}}</li>
+              <li>Départ: {{match.driverTripId.startLocation.string}}</li>
+              <li>Heure: {{match.driverTripId.departDateAndTime | date: "H:mm"}}</li>
+              <li>Arrivée: {{match.driverTripId.endLocation.string}}</li>
+            </ul>
+          </a>
+        </section>
+        <button (click)="acceptMatch(match._id)" *ngIf="match.acceptedByDriver">accepter la demande</button>
+        <article *ngIf="!match.acceptedByDriver">requête en attente</article>
+        <button (click)="removeMatch(match._id)">supprimer la demande</button>
+      </div>
 
-    <div class="match-box" *ngIf="match.passengerTripId.user !== userData._id">
-      <img [src]="match?.passengerTripId.user.picturlUrl" alt="photo de {{match.passengerTripId.user.firstName}}">
-      <section>
-        <h3>
-          <a href="/profile/{{match.passengerTripId.user._id}}" target="_blank">{{match.passengerTripId.user.firstName}}</a> souhaite voyager avec vous!</h3>
-        <a href="/trip/{{match.passengerTripId._id}}" target="_blank">
-          <ul>
-            <li>Date: {{match.passengerTripId.departDateAndTime | date: "dd/MM/yy"}}</li>
-            <li>Départ: {{match.passengerTripId.startLocation.string}}</li>
-            <li>Heure: {{match.passengerTripId.departDateAndTime | date: "H:mm"}}</li>
-            <li>Arrivée: {{match?.passengerTripId.endLocation.string}}</li>
-          </ul>
-        </a>
-      </section>
-      <button *ngIf="match?.acceptedByPassenger">accepter la demande</button>
-      <article *ngIf="!match?.acceptedByPassenger">requête en attente</article>
-      <button>supprimer la demande</button>
+      <div class="match-box" *ngIf="match.passengerTripId.user !== userData._id">
+        <img [src]="match?.passengerTripId.user.picturlUrl" alt="photo de {{match.passengerTripId.user.firstName}}">
+        <section>
+          <h3>
+            <a href="/profile/{{match.passengerTripId.user._id}}" target="_blank">{{match.passengerTripId.user.firstName}}</a> souhaite voyager avec vous!</h3>
+          <a href="/trip/{{match.passengerTripId._id}}" target="_blank">
+            <ul>
+              <li>Date: {{match.passengerTripId.departDateAndTime | date: "dd/MM/yy"}}</li>
+              <li>Départ: {{match.passengerTripId.startLocation.string}}</li>
+              <li>Heure: {{match.passengerTripId.departDateAndTime | date: "H:mm"}}</li>
+              <li>Arrivée: {{match?.passengerTripId.endLocation.string}}</li>
+            </ul>
+          </a>
+        </section>
+        <button (click)="acceptMatch(match._id)" *ngIf="match?.acceptedByPassenger">accepter la demande</button>
+        <article *ngIf="!match?.acceptedByPassenger">requête en attente</article>
+        <button (click)="removeMatch(match._id)">supprimer la demande</button>
+      </div>
     </div>
   </div>
 </div>
