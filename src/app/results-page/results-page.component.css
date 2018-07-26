@@ -22,6 +22,7 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 100px;
 }
 
 .flexy p {
@@ -34,7 +35,7 @@ h3 {
   align-items: center;
   width: 70vw;
   margin: 0 auto;
-  border: solid cadetblue .2em;
+  border: solid cadetblue 0.2em;
   margin-bottom: 2em;
 }
 
