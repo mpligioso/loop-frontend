@@ -40,6 +40,7 @@ export class RequestsPageComponent implements OnInit {
       .check()
       .then((response: any) => {
         this.userData = response;
+        console.log(response.isDriver)
       })
       .catch(err => {
         console.log(err);
@@ -64,10 +65,13 @@ export class RequestsPageComponent implements OnInit {
   acceptMatch(matchId){
     const isOkay = confirm("Voulez-vous accepter la demande?");
 
+    const { isDriver } = this.userData;
+
     if(isOkay){
-      this.myMatchServ.changeMatchStatus(matchId)
+      this.myMatchServ.changeMatchStatus(matchId, isDriver)
         .then((response) => {
-          this.myRouterServ.navigateByUrl("/requests")
+          this.myRouterServ.navigateByUrl("/dashboard");
+          alert("Le match a été confirmé")
         })
         .catch((err) => {
           alert("Oups! Votre demande ne peut pas être confirmé.")

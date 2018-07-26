@@ -24,7 +24,7 @@
             </ul>
           </a>
         </section>
-        <button *ngIf="match.acceptedByDriver">accepter la demande</button>
+        <button (click)="acceptMatch(match._id)" *ngIf="match.acceptedByDriver">accepter la demande</button>
         <article *ngIf="!match.acceptedByDriver">requête en attente</article>
         <button (click)="removeMatch(match._id)">supprimer la demande</button>
       </div>
@@ -43,7 +43,7 @@
             </ul>
           </a>
         </section>
-        <button *ngIf="match?.acceptedByPassenger">accepter la demande</button>
+        <button (click)="acceptMatch(match._id)" *ngIf="match?.acceptedByPassenger">accepter la demande</button>
         <article *ngIf="!match?.acceptedByPassenger">requête en attente</article>
         <button (click)="removeMatch(match._id)">supprimer la demande</button>
       </div>
