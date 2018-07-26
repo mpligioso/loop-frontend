@@ -17,7 +17,10 @@
       </a>
     </section>
 
-
-    <button>faire une demande</button>
+    <form>
+      <p>{{match._id}}</p>
+      <input [(ngModel)]="matchId" name="matchId">
+    <button (click)="initMatchReq(match)">faire une demande</button>
+    </form>
   </div>
 </div>
