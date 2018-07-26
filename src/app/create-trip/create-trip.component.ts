@@ -9,7 +9,6 @@ import {
 import { Router } from "@angular/router";
 import { TripsService, TripInput } from "../api/trips.service";
 import { FormControl } from "@angular/forms";
-//import { } from 'googlemaps';
 import { MapsAPILoader } from "@agm/core";
 import { User, AuthService } from "../api/auth.service";
 
@@ -26,7 +25,7 @@ export class CreateTripComponent implements OnInit {
   searchControl: FormControl;
 
   @ViewChild("searchDep") searchDepElementRef: ElementRef;
-
+  
   @ViewChild("searchArr") searchArrElementRef: ElementRef;
 
   constructor(

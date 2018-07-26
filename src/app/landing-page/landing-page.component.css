@@ -24,31 +24,37 @@ h1 {
 }
 
 #top-section {
-  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)),
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
     url("../../assets/images/newlandingpageBG.jpg");
   background-position: center;
   background-size: cover;
-  height: 1000px;
-}
-
-.text-area {
-  max-width: 1920px;
-  min-width: 920px;
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
+  height: 900px;
 }
 
 #top-section .text {
   width: 600px;
   height: 300px;
   margin: auto;
+  padding-top: 300px;
   font-size: 2em;
   color: white;
+  text-align: center;
 }
 
 #about {
-  /* height: 500px; */
+  height: 600px;
+}
+
+.text-area {
+  max-width: 1920px;
+  min-width: 920px;
+  width: 100%;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 1.3em;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
 }
 
 #team {
@@ -56,12 +62,41 @@ h1 {
 }
 
 #questions {
+  height: 600px;
+}
+
+#questions h2 {
+  margin: 0 auto;
+}
+
+#haut-gauche,
+#milieu-droit,
+#bas-gauche {
+  width: 45%;
+}
+
+#questions .text-area {
+  justify-content: space-evenly;
+}
+
+#milieu-droit {
+  align-self: flex-end;
+}
+
+#timebar {
+  position: absolute;
+  left: 50%;
+}
+
+#timebar img {
+  position: absolute;
+  top: 75px;
+  height: 500px;
 }
 
 #contact {
   background-color: #5cc9a0;
-  height: 500px;
-  background-color: #5cc9a0;
+  height: 400px;
 }
 
 #contact form {
@@ -71,6 +106,7 @@ h1 {
   flex-direction: column;
   height: 280px;
   justify-content: space-around;
+  margin: 0 auto;
 }
 
 button {
@@ -78,7 +114,10 @@ button {
   border: none;
   width: 150px;
   color: white;
-  font-size: 20px;
+  font-size: 25px;
+  border-radius: 28px;
+  height: 50px;
+  margin: 0 auto;
 }
 
 button a {

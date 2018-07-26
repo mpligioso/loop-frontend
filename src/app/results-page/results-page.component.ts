@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+///<reference types="googlemaps" />
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Trip, TripsService, matchedTrip } from '../api/trips.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatchService, newMatchSubmission } from '../api/match.service';
+
+
+
 
 @Component({
   selector: 'app-results-page',
@@ -14,6 +18,13 @@ export class ResultsPageComponent implements OnInit {
   matchId: string;
 
 
+  @ViewChild('gmap') gmapElement: any;
+  map: google.maps.Map;
+
+   //Directions setup
+  directionsService = new google.maps.DirectionsService();
+
+
   constructor(
     private myActivatedRouteServ: ActivatedRoute,
     private myTripServ: TripsService,
@@ -22,11 +33,12 @@ export class ResultsPageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    //this.initMap();
     this.myActivatedRouteServ.paramMap
       .subscribe((myParams) => {
         this.id = myParams.get("tripId")
         this.getMatchResults();
-      })
+      });
   }
 
   getMatchResults(){
@@ -34,9 +46,10 @@ export class ResultsPageComponent implements OnInit {
       .then((response: matchedTrip) => {
         console.log(response)
         this.match = response;
+        this.initMap(this.match)
       })
       .catch((err) => {
-        alert("Oups, nous n'avons pas réussi à récupérer vos matchs")
+        alert("Oups! nous n'avons pas réussi à récupérer vos matchs.")
         console.log(err)
       })
   }
@@ -57,5 +70,48 @@ export class ResultsPageComponent implements OnInit {
         });
       }
   }
+
+  //Map initialisation (default coordinates : Paris)
+ initMap(match: matchedTrip) {
+  let directionsDisplay = new google.maps.DirectionsRenderer();
+  let mapOptions = {
+    zoom:14,
+    center: new google.maps.LatLng(48.8566667, 2.3509871),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  }
+  var map = new google.maps.Map(this.gmapElement.nativeElement, mapOptions);
+  directionsDisplay.setMap(map);
+  this.calcRoute(match, directionsDisplay)
+}
+
+
+ calcRoute(match: matchedTrip, directionsDisplay) {
+  var start = match.trip.startLocation.string;
+  var end = match.trip.endLocation.string;
+  var request = {
+    origin: start,
+    destination: end,
+    // waypoints: [{
+    //   location: ,
+    //   stopover: true
+    // }, {
+    //   location: ,
+    //   stopover: true
+    // }
+    //],
+    travelMode: google.maps.TravelMode.DRIVING
+  };
+  this.directionsService.route(request, function(result, status) {
+    if (status === google.maps.DirectionsStatus.OK) {
+      console.log(result)
+      directionsDisplay.setDirections(result);
+      directionsDisplay.setOptions({
+          polylineOptions: {
+            strokeColor: "blue"
+          }
+      });
+    }
+  });
+}
 
 }

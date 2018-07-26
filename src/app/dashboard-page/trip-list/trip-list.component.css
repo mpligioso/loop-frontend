@@ -9,6 +9,7 @@ h1 {
   padding: 0 50px;
   margin: 20px 0px;
   align-items: center;
+  color: #55c9a0;
 }
 
 .header a {
@@ -17,15 +18,6 @@ h1 {
 
 .links {
   align-content: flex-end;
-}
-
-ul {
-  display: flex;
-  justify-content: space-around;
-}
-
-li {
-  display: inline-block;
 }
 
 #customers {
@@ -44,12 +36,4 @@ li {
 
 #customers tr:hover {
   background-color: #ddd;
-}
-
-#customers th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #4caf50;
-  color: white;
 }
