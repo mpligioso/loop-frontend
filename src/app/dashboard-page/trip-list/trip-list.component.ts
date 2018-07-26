@@ -21,7 +21,6 @@ export class TripListComponent implements OnInit {
     this.myTripServ.getTrips()
       .then((results: any) => {
         this.tripData = results;
-        console.log(results)
       })
       .catch((err) => {
         console.log(err)
