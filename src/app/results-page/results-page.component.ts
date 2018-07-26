@@ -31,7 +31,7 @@ export class ResultsPageComponent implements OnInit {
 
   getMatchResults(){
     this.myTripServ.getTripMatches(this.id)
-      .then((response: any) => {
+      .then((response: matchedTrip) => {
         console.log(response)
         this.match = response;
       })
@@ -41,22 +41,19 @@ export class ResultsPageComponent implements OnInit {
       })
   }
 
-  initMatchReq(match){
+  initMatchReq(matchId){
     const confirmReq = confirm("Voulez-vous confirmer la demande?");
 
-    const { _id } = match;
-    console.log(match)
-
     if(confirmReq){
-      this.myMatchServ.createMatchRequest(this.id, match._id)
-        .then((response: any) => {
+      this.myMatchServ.createMatchRequest(this.id, matchId)
+        .then((response) => {
           alert("Votre demande a été envoyée.")
-          console.log(response._id)
+          console.log(response)
         })
         .catch((err) => {
           alert("Oups! Nous n'avons pas réussi à envoyer votre demande.")
           console.log(err)
-        })
+        });
       }
   }
 
