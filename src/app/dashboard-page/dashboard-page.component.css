@@ -5,21 +5,21 @@ h4 {
   margin: 0;
 }
 
-.border {
+/* .border {
   border-color: rgb(0, 0, 0, 0.2);
   border-width: 1px;
   border-style: groove;
-}
+} */
 
 .dash {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
+  margin-top: 100px;
 }
 
 .dash img {
   align-self: center;
-  border-radius: 50%;
   width: 500px;
 }
 
@@ -40,6 +40,10 @@ h4 {
   justify-content: space-between;
 }
 
+.user-info span a {
+  color: #fe5d6a;
+}
+
 .user-info ul {
   height: 160px;
   display: flex;
@@ -49,6 +53,7 @@ h4 {
 
 .user-info li {
   padding: 30px 10px;
+  list-style-type: none;
 }
 
 .user-cars {

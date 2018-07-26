@@ -48,31 +48,32 @@
 
     <p>h</p>
 
-  <select [(ngModel)]="tripForm.departMin" name="departMin">
-    <option value="00">00</option>
-    <option value="05">05</option>
-    <option value="10">10</option>
-    <option value="15">15</option>
-    <option value="20">20</option>
-    <option value="25">25</option>
-    <option value="30">30</option>
-    <option value="35">35</option>
-    <option value="40">40</option>
-    <option value="45">45</option>
-    <option value="50">50</option>
-    <option value="55">55</option>
-  </select>
+    <select [(ngModel)]="tripForm.departMin" name="departMin">
+      <option value="00">00</option>
+      <option value="05">05</option>
+      <option value="10">10</option>
+      <option value="15">15</option>
+      <option value="20">20</option>
+      <option value="25">25</option>
+      <option value="30">30</option>
+      <option value="35">35</option>
+      <option value="40">40</option>
+      <option value="45">45</option>
+      <option value="50">50</option>
+      <option value="55">55</option>
+    </select>
   </div>
+
   <!-- if Conducteur -->
-  <select *ngIf="userData?.isDriver" [(ngModel)]="tripForm.car" name="car">
+  <!-- <select *ngIf="userData?.isDriver" [(ngModel)]="tripForm.car" name="car">
     <option *ngFor="let oneCar of userData?.cars" value="{{oneCar.model}}">{{oneCar.model}}</option>
-  </select>
+  </select> -->
 
   <!-- if Passenger -->
-  <select *ngIf="!userData?.isDriver" [(ngModel)]="tripForm.specificNeeds" name="specificNeeds">
+  <!-- <select *ngIf="!userData?.isDriver" [(ngModel)]="tripForm.specificNeeds" name="specificNeeds">
     <option *ngFor="let oneNeed of userData?.specificNeedsA" value="{{oneNeed}}">{{oneNeed}}</option>
     <option value="{{userData?.specificNeedsB}}">{{userData?.specificNeedsB}}</option>
-  </select>
+  </select> -->
 
   <label for="comment">Des commentaires ?</label>
   <textarea [(ngModel)]="tripForm.comment" name="comment" id="comment" cols="30" rows="10"></textarea>
