@@ -7,12 +7,28 @@
   </span>
 </span>
 
-<div>
+<!-- <div>
   <ul *ngFor="let trip of tripData">
     <li>{{trip?.startLocation.string}} - {{trip?.endLocation.string}}</li>
     <li>{{trip?.departDateAndTime | date: "dd/MM/yy"}}</li>
     <li>{{trip?.departDateAndTime | date: "H:mm"}}</li>
     <li>OTHER USER INVOLVED</li>
-    <li><a routerLink="/trip/{{trip._id}}">Détails</a></li>
+    <li>
+      <a routerLink="/trip/{{trip._id}}">Détails</a>
+    </li>
   </ul>
-</div>
+</div> -->
+
+<table id="customers">
+  <tr *ngFor="let trip of tripData">
+    <td>{{trip?.startLocation.string}} - {{trip?.endLocation.string}}</td>
+    <td>{{trip?.departDateAndTime | date: "dd/MM/yy"}}</td>
+    <td>{{trip?.departDateAndTime | date: "H:mm"}}</td>
+    <td>OTHER USER</td>
+    <td>
+      <a routerLink="/trip/{{trip._id}}">
+        <img src="../../../assets/images/details-icon.png" width="30px">
+      </a>
+    </td>
+  </tr>
+</table>
