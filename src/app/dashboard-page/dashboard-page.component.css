@@ -6,7 +6,7 @@ h4 {
 }
 
 .border {
-  border-color: black;
+  border-color: rgb(0, 0, 0, 0.2);
   border-width: 1px;
   border-style: groove;
 }
@@ -19,6 +19,8 @@ h4 {
 
 .dash img {
   align-self: center;
+  border-radius: 50%;
+  width: 500px;
 }
 
 .user-info {

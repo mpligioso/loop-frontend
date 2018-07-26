@@ -1,0 +1,35 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  height: 55px;
+  border-bottom-color: rgba(0, 0, 0, 0.3);
+  border-bottom-width: 2px;
+  border-bottom-style: groove;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+}
+
+.navbar img {
+  margin-left: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.navbar .links {
+  margin-right: 50px;
+  margin-top: 20px;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: black;
+  margin-left: 30px;
+  margin-left: 30px;
+}
+
+.active,
+.navbar a:hover {
+  font-weight: bold;
+}

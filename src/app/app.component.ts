@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { AuthService } from "./api/auth.service";
 import { Router } from "@angular/router";
+import { faSignOutAlt, faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: "app-root",
@@ -8,6 +9,8 @@ import { Router } from "@angular/router";
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
+  faSignOutAlt = faSignOutAlt;
+  faPlusCircle = faPlusCircle;
   title = "loop";
 
   constructor(public myAuthServ: AuthService, public myRouterServ: Router) {}

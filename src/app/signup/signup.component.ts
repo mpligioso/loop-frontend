@@ -33,14 +33,12 @@ export class SignupComponent implements OnInit {
           Validators.pattern("0[0-9]{9}")
         ])
       ],
-      email: [
-        null,[Validators.required, Validators.email]
-      ],
+      email: [null, [Validators.required, Validators.email]],
       originalPassword: [
         null,
         Validators.compose([
           Validators.required,
-          Validators.pattern('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{7,}$')
+          Validators.pattern("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{7,}$")
         ])
       ],
       isDriver: [null, Validators.required]
@@ -53,7 +51,7 @@ export class SignupComponent implements OnInit {
     this.myAuthServ
       .postSignup(this.signupForm)
       .then(response => {
-        this.myRouterServ.navigateByUrl("/");
+        this.myRouterServ.navigateByUrl("/dashboard");
       })
       .catch(err => {
         alert("Oups, l'inscription a échoué.");

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Trip, TripsService } from '../api/trips.service';
+import { Trip, TripsService, matchedTrip } from '../api/trips.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatchService, newMatchSubmission } from '../api/match.service';
 
@@ -9,7 +9,7 @@ import { MatchService, newMatchSubmission } from '../api/match.service';
   styleUrls: ['./results-page.component.css']
 })
 export class ResultsPageComponent implements OnInit {
-  matchResults: Array<Trip> = [];
+  match: matchedTrip;
   id: string;
   matchId: string;
 
@@ -31,9 +31,9 @@ export class ResultsPageComponent implements OnInit {
 
   getMatchResults(){
     this.myTripServ.getTripMatches(this.id)
-      .then((response: Array<Trip>) => {
+      .then((response: any) => {
         console.log(response)
-        this.matchResults = response;
+        this.match = response;
       })
       .catch((err) => {
         alert("Oups, nous n'avons pas réussi à récupérer vos matchs")

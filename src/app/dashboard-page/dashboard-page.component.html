@@ -1,6 +1,6 @@
 <div class="dash">
-    <!-- <img [src]="userData?.pictureURL"> -->
-    <img src="../assets/images/logo.png" alt="Photo de Profil">
+    <img [src]="userData?.pictureURL">
+    <!-- <img src="../assets/images/logo.png" alt="Photo de Profil"> -->
 
 
     <div class="user-info left">
@@ -56,7 +56,7 @@
             </span>
             <ul>
                 <li *ngFor="let oneNeed of userData?.specificNeedsA">{{oneNeed}}</li>
-                <li *ngIf="userData?.specificNeedsB.length > 0">{{userData?.specificNeedsB}}</li>
+                <li *ngIf="userData?.specificNeedsB">{{userData?.specificNeedsB}}</li>
             </ul>
         </div>
     </div>
