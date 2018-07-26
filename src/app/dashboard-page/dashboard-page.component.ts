@@ -9,7 +9,7 @@ import { TripsService, Trip, Location } from "../api/trips.service";
 })
 export class DashboardPageComponent implements OnInit {
   userData: User;
-  // tripData: Array<Trip>;
+
 
   constructor(
     public myAuthServ: AuthService,
@@ -18,8 +18,6 @@ export class DashboardPageComponent implements OnInit {
 
   ngOnInit() {
     this.getUserInfo();
-    console.log(userData);
-    // this.getUserTrips();
   }
 
   getUserInfo() {
@@ -33,13 +31,4 @@ export class DashboardPageComponent implements OnInit {
       });
   }
 
-  // getUserTrips(){
-  //   this.myTripServ.getTrips()
-  //     .then((results: any) => {
-  //       this.tripData = results;
-  //     })
-  //     .catch((err) => {
-  //       console.log(err)
-  //     })
-  // }
 }
