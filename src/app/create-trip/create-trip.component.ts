@@ -103,8 +103,8 @@ export class CreateTripComponent implements OnInit {
   tripSubmit() {
     this.myTripsServ
       .postTrip(this.tripForm)
-      .then(() => {
-        this.myRouterServ.navigateByUrl(`/dashboard`);
+      .then((tripDoc: any) => {
+        this.myRouterServ.navigateByUrl(`/trip/${tripDoc._id}/results`);
         this.tripForm = new TripInput();
       })
       .catch(err => {

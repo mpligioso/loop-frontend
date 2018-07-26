@@ -13,7 +13,7 @@
 
   <div class="date">
     <label for="departDate">Date :</label>
-    <input [(ngModel)]="tripForm.departDate" name="departDate" id="departDate" type="date">
+    <input [(ngModel)]="tripForm.departDate" name="departDate" id="departDate" type="date" min="2018-01-01">
   </div>
 
   <div class="departTime">
@@ -48,6 +48,20 @@
 
     <p>h</p>
 
+  <select [(ngModel)]="tripForm.departMin" name="departMin">
+    <option value="00">00</option>
+    <option value="05">05</option>
+    <option value="10">10</option>
+    <option value="15">15</option>
+    <option value="20">20</option>
+    <option value="25">25</option>
+    <option value="30">30</option>
+    <option value="35">35</option>
+    <option value="40">40</option>
+    <option value="45">45</option>
+    <option value="50">50</option>
+    <option value="55">55</option>
+  </select>
   </div>
   <!-- if Conducteur -->
   <select *ngIf="userData?.isDriver" [(ngModel)]="tripForm.car" name="car">

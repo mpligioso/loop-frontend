@@ -3,24 +3,27 @@
 
   <p>Your matches are based on the most time effecient trips for both you and your co-rider.</p>
 
-  <div class="match-box" *ngFor="let match of matchResults">
-    <img [src]="match.user.picturlUrl" alt="photo de {{match.user.firstName}}">
-    <section>
-      <h3><a href="/profile/{{match.user._id}}" target="_blank">{{match.user.firstName}}</a> souhaite voyager avec vous!</h3>
-      <a href="/trip/{{match._id}}" target="_blank">
-        <ul>
-          <li>Date: {{match.departDateAndTime | date: "dd/MM/yy"}}</li>
-          <li>Départ: {{match.startLocation.string}}</li>
-          <li>Heure: {{match.departDateAndTime | date: "H:mm"}}</li>
-          <li>Arrivée: {{match.endLocation.string}}</li>
-        </ul>
-      </a>
-    </section>
+  <!-- <div *ngIf="matchResults"> -->
+    <!-- <div class="match-box" *ngFor="let match of matchResults"> -->
+      <div class="match-box">
+      <img [src]="match.trip.user.picturlUrl" alt="photo de {{match.trip.user.firstName}}">
+      <section>
+        <h3><a href="/profile/{{match.user._id}}" target="_blank">{{match.user.firstName}}</a> souhaite voyager avec vous!</h3>
+        <a href="/trip/{{match._id}}" target="_blank">
+          <ul>
+            <li>Date: {{match.departDateAndTime | date: "dd/MM/yy"}}</li>
+            <li>Départ: {{match.startLocation.string}}</li>
+            <li>Heure: {{match.departDateAndTime | date: "H:mm"}}</li>
+            <li>Arrivée: {{match.endLocation.string}}</li>
+          </ul>
+        </a>
+      </section>
 
-    <form>
-      <p>{{match._id}}</p>
-      <input [(ngModel)]="matchId" name="matchId">
-    <button (click)="initMatchReq(match)">faire une demande</button>
-    </form>
-  </div>
+      <form>
+        <p>{{match._id}}</p>
+        <input [(ngModel)]="matchId" name="matchId">
+      <button (click)="initMatchReq(match)">faire une demande</button>
+      </form>
+    </div>
+  <!-- </div> -->
 </div>

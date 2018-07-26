@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 
 import { environment } from "../../environments/environment";
+import { User } from "./auth.service";
 const { backendUrl } = environment;
 
 @Injectable({
@@ -63,13 +64,18 @@ export class TripInput {
 
 export class Trip {
   _id: string;
-  user: string;
+  user: User;
   departDateAndTime: Date;
   endLocation: Location;
   startLocation: Location;
   comment: string;
   createdAt: string;
   updatedAt: string;
+}
+
+export class matchedTrip {
+  dur: number;
+  trip: Trip;
 }
 
 export class Location {
