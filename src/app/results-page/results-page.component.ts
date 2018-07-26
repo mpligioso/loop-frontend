@@ -6,6 +6,7 @@ import { MatchService, newMatchSubmission } from '../api/match.service';
 
 
 
+
 @Component({
   selector: 'app-results-page',
   templateUrl: './results-page.component.html',
@@ -22,9 +23,6 @@ export class ResultsPageComponent implements OnInit {
 
    //Directions setup
   directionsService = new google.maps.DirectionsService();
-
-  //var directionsDisplay2 = new google.maps.DirectionsRenderer();
-
 
 
   constructor(
