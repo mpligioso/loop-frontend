@@ -1,21 +1,31 @@
-<header>
-  <h1>{{title}}</h1>
+<nav *ngIf="!myAuthServ.currentUser" class="navbar">
+  <div>
+    <a routerLink="/">
+      <img src="../assets/images/logo.png" alt="logo" width="60px">
+    </a>
+  </div>
 
-  <nav>
-    <a routerLink="/">Accueil</a> |
+  <div class="links">
+    <a routerLink="/login">CONNEXION</a>
+    <a routerLink="/signup">INSCRIPTION</a>
+  </div>
+</nav>
 
-    <span *ngIf="myAuthServ.currentUser">
-      <b>Bonjour, {{myAuthServ.currentUser.firstName}} !</b> |
-      <a routerLink="/dashboard">Mon tableau de bord</a> |
-      <a routerLink="/settings">Paramètres</a> |
-      <button (click)="logoutClick()">Déconnexion</button>
-    </span>
+<nav *ngIf="myAuthServ.currentUser" class="navbar">
+  <a routerLink="/dashboard">
+    <img src="../assets/images/logo.png" alt="logo" width="60px">
+  </a>
 
-    <span *ngIf="!myAuthServ.currentUser">
-      <a routerLink="/login">Me connecter</a> |
-      <a routerLink="/signup">M'inscrire</a>
-    </span>
-  </nav>
-</header>
+  <div class="links">
+    <a routerLink="/trip/add" [routerLinkActive]="active">CREER UN TRAJET
+      <fa-icon [icon]="faPlusCircle"></fa-icon>
+    </a>
+    <a routerLink="/requests" [routerLinkActive]="active">REQUETES</a>
+    <a routerLink="/" (click)="logoutClick()">
+      DECONNEXION
+      <fa-icon [icon]="faSignOutAlt"></fa-icon>
+    </a>
+  </div>
+</nav>
 
 <router-outlet></router-outlet>
