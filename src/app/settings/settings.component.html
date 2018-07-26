@@ -1,58 +1,64 @@
 <h2>Mes données personnelles</h2>
 
-<form (ngSubmit)="settingsSubmit()">
-  <input [(ngModel)]="settingsForm.firstName" name="firstName" id="firstName" type="text" placeholder="Mon prénom" value="{{currentUser?.firstName}}">
-  <br>
+<div class="login-page">
+  <div class="form">
+    <form (ngSubmit)="settingsSubmit()" class="login-form">
+      <input [(ngModel)]="settingsForm.firstName" name="firstName" id="firstName" type="text" placeholder="Mon prénom" value="{{currentUser?.firstName}}">
+      <br>
 
-  <input [(ngModel)]="settingsForm.lastName" name="lastName" id="lastName" type="text" placeholder="Mon nom" value="{{currentUser?.lastName}}">
-  <br>
+      <input [(ngModel)]="settingsForm.lastName" name="lastName" id="lastName" type="text" placeholder="Mon nom" value="{{currentUser?.lastName}}">
+      <br>
 
-  <label for="exampleFormControlFile1">Change Your Picture</label>
-  <input name="pictureURL" id="pictureURL" type="file" value="{{currentUser?.pictureURL}}">
-  <br>
+      <label for="exampleFormControlFile1">Change Your Picture</label>
+      <input name="pictureURL" id="pictureURL" type="file" value="{{currentUser?.pictureURL}}">
+      <br>
 
-  <input [(ngModel)]="settingsForm.phoneNumber" name="phoneNumber" id="phoneNumber" type="text" placeholder="Mon numéro de téléphone"
-    value="{{currentUser?.phoneNumber}}">
-  <br>
+      <input [(ngModel)]="settingsForm.phoneNumber" name="phoneNumber" id="phoneNumber" type="text" placeholder="Mon numéro de téléphone"
+        value="{{currentUser?.phoneNumber}}">
+      <br>
 
-  <label>Genre?</label>
-  <input [(ngModel)]="settingsForm.gender" name="gender" id="homme" type="radio" value="Homme" />
-  <label for="homme">Homme</label>
+      <label>Genre?</label>
+      <div class="switch-field">
+        <input [(ngModel)]="settingsForm.gender" name="gender" id="homme" type="radio" value="Homme" />
+        <label for="homme">Homme</label>
 
-  <input [(ngModel)]="settingsForm.gender" name="gender" id="femme" type="radio" value="Femme" />
-  <label for="femme">Femme</label>
-  <br>
-
-  <input [(ngModel)]="settingsForm.oldPassword" name="oldPassword" id="oldPassword" type="password" placeholder="Mot de passe actuel">
-  <br>
-
-  <input [(ngModel)]="settingsForm.newPassword" name="newPassword" id="newPassword" type="password" placeholder="Nouveau mot de passe">
-  <br>
-
-  <label>Mes informations de conducteur :</label>
-  <input *ngIf="myAuthServ.currentUser.isDriver" [(ngModel)]="settingsForm.licenseNumber" name="licenseNumber" id="licenseNumber"
-    type="text" placeholder="Mon numéro de permis" value="{{currentUser?.licenseNumber}}">
-  <br>
-
-  <!-- if Passenger -->
-  <div *ngIf="!myAuthServ.currentUser.isDriver">
-    <label>Mes informations de passager :</label>
-    <fieldset>
-
-      <legend>Mes besoins spécifiques</legend>
-
-      <div *ngFor="let oneNeed of needs">
-        <input (change)="checkArray(oneNeed.text)" [checked]="settingsForm.specificNeedsA.includes(oneNeed.text)" [name]="oneNeed.id" [id]="oneNeed.id" type="checkbox" [value]="oneNeed.text">
-        <label [for]="oneNeed.id">{{oneNeed.text}}</label>
+        <input [(ngModel)]="settingsForm.gender" name="gender" id="femme" type="radio" value="Femme" />
+        <label for="femme">Femme</label>
+        <br>
       </div>
-    </fieldset>
-    <label for="comment">Avez-vous un besoin spécifique qui ne fait pas partie de la liste?</label>
-    <br>
-    <textarea [(ngModel)]="settingsForm.specificNeedsB" name="specificNeedsB" id="specificNeedsB" cols="30" rows="10"></textarea>
-  </div>
 
-  <input type="submit" value="Enregistrer">
-</form>
+      <input [(ngModel)]="settingsForm.oldPassword" name="oldPassword" id="oldPassword" type="password" placeholder="Mot de passe actuel">
+      <br>
+
+      <input [(ngModel)]="settingsForm.newPassword" name="newPassword" id="newPassword" type="password" placeholder="Nouveau mot de passe">
+      <br>
+
+      <input *ngIf="myAuthServ.currentUser.isDriver" [(ngModel)]="settingsForm.licenseNumber" name="licenseNumber" id="licenseNumber"
+        type="text" placeholder="Mon numéro de permis" value="{{currentUser?.licenseNumber}}">
+      <br>
+
+      <!-- if Passenger -->
+      <div *ngIf="!myAuthServ.currentUser.isDriver">
+        <label>Mes informations de passager :</label>
+        <fieldset>
+
+          <legend>Mes besoins spécifiques</legend>
+
+          <div *ngFor="let oneNeed of needs">
+            <input (change)="checkArray(oneNeed.text)" [checked]="settingsForm.specificNeedsA.includes(oneNeed.text)" [name]="oneNeed.id"
+              [id]="oneNeed.id" type="checkbox" [value]="oneNeed.text">
+            <label [for]="oneNeed.id">{{oneNeed.text}}</label>
+          </div>
+        </fieldset>
+        <label for="comment">Avez-vous un besoin spécifique qui ne fait pas partie de la liste?</label>
+        <br>
+        <textarea [(ngModel)]="settingsForm.specificNeedsB" name="specificNeedsB" id="specificNeedsB" cols="30" rows="10"></textarea>
+      </div>
+
+      <input class="submit" type="submit" value="Enregistrer">
+    </form>
+  </div>
+</div>
 
 <form (ngSubmit)="carSubmit()">
   <!-- if Driver -->

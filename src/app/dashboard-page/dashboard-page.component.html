@@ -13,33 +13,36 @@
             </b>
         </span>
 
-        <ul>
-            <li>{{userData?.gender}}</li>
-            <li>Adresse: {{userData?.address}}</li>
-            <li>Téléphone: {{userData?.phoneNumber}}</li>
-            <li>Mail: {{userData?.email}}</li>
-            <li *ngIf="userData?.isDriver">Numéro de permis: {{userData?.licenseNumber}}</li>
-            <li>Password: ********</li>
-        </ul>
-
+        <div class="border">
+            <ul>
+                <li>{{userData?.gender}}</li>
+                <li>Adresse: {{userData?.address}}</li>
+                <li>Téléphone: {{userData?.phoneNumber}}</li>
+                <li>Mail: {{userData?.email}}</li>
+                <li *ngIf="userData?.isDriver">Numéro de permis: {{userData?.licenseNumber}}</li>
+                <li>Password: •••••••</li>
+            </ul>
+        </div>
 
         <div *ngIf="userData?.cars.length > 0" class="user-cars">
             <span>
                 <h3>
-                    <i>Mes voitures</i>
+                    Mes voitures
                 </h3>
                 <b>
                     <a routerLink="/settings">Modifier</a>
                 </b>
             </span>
 
-            <ul *ngFor="let oneCar of userData?.cars">
-                <li>Marque: {{oneCar.brand}}</li>
-                <li>Modèle: {{oneCar.model}}</li>
-                <li>Couleur: {{oneCar.color}}</li>
-                <li>Plaque: {{oneCar.licensePlate}}</li>
-                <li>Nombre de sièges: {{oneCar.numberOfSeats}}</li>
-            </ul>
+            <div class="border">
+                <ul *ngFor="let oneCar of userData?.cars">
+                    <li>Marque: {{oneCar.brand}}</li>
+                    <li>Modèle: {{oneCar.model}}</li>
+                    <li>Couleur: {{oneCar.color}}</li>
+                    <li>Plaque: {{oneCar.licensePlate}}</li>
+                    <li>Nombre de sièges: {{oneCar.numberOfSeats}}</li>
+                </ul>
+            </div>
         </div>
 
         <div *ngIf="!userData?.isDriver">
