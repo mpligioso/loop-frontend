@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MapsAPILoader } from "@agm/core";
 import { ViewChild } from '@angular/core';
 import { TripsService, Trip } from '../api/trips.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { User, AuthService } from '../api/auth.service';
 import { MatchService, Match } from '../api/match.service';
 
@@ -20,6 +20,7 @@ export class TripDetailsPageComponent implements OnInit {
 
   constructor(
     private myActivatedRouteServ: ActivatedRoute,
+    private myRouterServ: Router,
     private myAuthServ: AuthService,
     private myTripServ: TripsService,
     private myMatchServ: MatchService,
@@ -68,4 +69,20 @@ export class TripDetailsPageComponent implements OnInit {
         console.log(err)
       })
   }
+
+  deleteTrip(){
+    const confirmRequest = confirm("Voulez-vous supprimer ce trajet?");
+
+    if(confirmRequest){
+    this.myTripServ.deleteTrip(this.tripId)
+      .then((response) => {
+        this.myRouterServ.navigateByUrl("/dashboard");
+        alert("Ce voyage a été supprimé")
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+    }
+  }
+
 }

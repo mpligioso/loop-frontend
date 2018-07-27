@@ -32,6 +32,12 @@
           <h2 *ngIf="currentTrip?._id === matchDetails?.driverTripId"><a class="request" routerLink="/trip/{{matchDetails?.passengerTripId}}">Voir les détails de votre match</a></h2>
           <h2 *ngIf="currentTrip?._id === matchDetails?.passengerTripId"><a class="request" routerLink="/trip/{{matchDetails?.driverTripId}}">Voir les détails de votre match</a></h2>
         </li>
+
+        <li *ngIf="!matchDetails">
+          <h2 *ngIf="currentTrip?.user._id === connectedUser?._id">
+            <a routerLink="/trip/{{currentTrip?._id}}/results">Pas de matchs? Voir des voyages similaires ici.</a>
+          </h2>
+        </li>
       </ul>
 
 
@@ -77,7 +83,7 @@
       </span>
 
       <span *ngIf="currentTrip?.user._id === connectedUser?._id">
-        <button class="delete">Supprimer ce trajet</button>
+        <button (click)="deleteTrip()" class="delete">Supprimer ce trajet</button>
         <br><br>
         <a routerLink="/dashboard">Retourner à votre tableau de bord</a>
       </span>
