@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Router } from "@angular/router";
 
 import { environment } from "../../environments/environment";
+import { CarSubmission } from "./settings.service";
 const { backendUrl } = environment;
 
 @Injectable({
@@ -74,6 +75,9 @@ export class User {
   email: string;
   phoneNumber: string;
   isDriver: boolean;
+  cars: Array<CarSubmission>;
+  pictureURL: string;
+  gender: string;
   createdAt: string;
   updatedAt: string;
 }

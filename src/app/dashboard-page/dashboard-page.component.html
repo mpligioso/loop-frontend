@@ -18,7 +18,7 @@
 
         <div class="border">
             <ul>
-                <li>{{userData?.gender}}</li>
+                <li *ngIf="userData?.gender">{{userData?.gender}}</li>
                 <li>Téléphone: {{userData?.phoneNumber}}</li>
                 <li>Mail: {{userData?.email}}</li>
                 <li *ngIf="userData?.isDriver">Numéro de permis: {{userData?.licenseNumber}}</li>
