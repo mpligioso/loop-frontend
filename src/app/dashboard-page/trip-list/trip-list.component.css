@@ -14,10 +14,11 @@ h1 {
 
 .header a {
   margin: 0 50px;
+  text-decoration: none;
 }
 
-.header img {
-  width: 50px;
+.header .requests {
+  /* width: 50px; */
   animation: shake 0.75s;
   animation-iteration-count: infinite;
 }
@@ -60,6 +61,7 @@ h1 {
 
 .links {
   align-content: flex-end;
+  padding-bottom: 20px;
 }
 
 #customers {
@@ -78,4 +80,18 @@ h1 {
 
 #customers tr:hover {
   background-color: #ddd;
+}
+
+button {
+  background-color: #fe5d6a;
+  border: none;
+  color: white;
+  font-size: 15px;
+  border-radius: 28px;
+  height: 50px;
+  margin: 0 auto;
+}
+
+button a {
+  color: white;
 }

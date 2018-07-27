@@ -41,15 +41,20 @@ h1 {
   text-align: center;
 }
 
+#top-section .text h1,
+#top-section .text p {
+  text-shadow: 2px 2px #000;
+}
+
 #about {
-  height: 600px;
+  height: 650px;
 }
 
 .text-area {
   max-width: 1920px;
   min-width: 920px;
   width: 100%;
-  padding-top: 15px;
+  padding-top: 30px;
   text-align: center;
   font-size: 1.3em;
   display: flex;
@@ -62,11 +67,12 @@ h1 {
 }
 
 #questions {
-  height: 600px;
+  height: 650px;
 }
 
 #questions h2 {
   margin: 0 auto;
+  margin-bottom: 15px;
 }
 
 #haut-gauche,
@@ -90,7 +96,7 @@ h1 {
 
 #timebar img {
   position: absolute;
-  top: 75px;
+  top: 80px;
   height: 500px;
 }
 
@@ -112,7 +118,6 @@ h1 {
 button {
   background-color: #fe5d6a;
   border: none;
-  width: 150px;
   color: white;
   font-size: 25px;
   border-radius: 28px;
@@ -124,4 +129,12 @@ button a {
   text-decoration: none;
   color: white;
   font-size: 20px;
+}
+
+button #signup {
+  width: 450px;
+}
+
+button #envoyer {
+  width: 150px;
 }

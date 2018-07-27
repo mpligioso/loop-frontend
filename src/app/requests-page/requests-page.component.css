@@ -8,12 +8,8 @@ a {
   color: black;
 }
 
-button {
-  padding: 10px;
-}
-
 h3 {
-  padding: 1em 0;
+  padding-bottom: 30px;
   font-size: 1.5em;
 }
 
@@ -33,9 +29,9 @@ h3 {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  padding: 1.8em;
+  padding: 1.3em;
   margin: 0 auto;
-  border: solid cadetblue 0.2em;
+  border: solid #5cc9a0 1px;
   margin-bottom: 2em;
 }
 
@@ -45,6 +41,7 @@ h3 {
 
 .match-box img {
   height: 125px;
+  margin-right: 15px;
 }
 
 .match-box ul {
@@ -56,8 +53,39 @@ h3 {
   list-style: none;
 }
 
+.actions {
+  display: flex;
+  flex-direction: column;
+}
+
 .match-box li {
   width: 16em;
   height: 4em;
 }
 
+button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #fe5d6a;
+  border: 0;
+  padding: 15px;
+  margin-top: 15px;
+  color: #ffffff;
+  font-size: 13px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  width: 190px;
+}
+button:hover,
+button:active,
+button:focus {
+  background: #fe5d6a;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

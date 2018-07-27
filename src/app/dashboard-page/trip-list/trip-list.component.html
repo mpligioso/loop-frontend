@@ -2,10 +2,14 @@
   <h1>Trajets à venir:</h1>
 
   <span class="links">
-    <a routerLink="/trip/add">Créer un trajet</a>
-    <a routerLink="/requests">
-      <img src="../../../assets/images/request-icon.png">
-    </a>
+    <button>
+      <a routerLink="/trip/add">CREER UN TRAJET</a>
+    </button>
+    <button class="requests">
+      <a routerLink="/requests">
+        REQUÊTES
+      </a>
+    </button>
   </span>
 </span>
 
@@ -14,7 +18,6 @@
     <td>{{trip?.startLocation.string}} - {{trip?.endLocation.string}}</td>
     <td>{{trip?.departDateAndTime | date: "dd/MM/yy"}}</td>
     <td>{{trip?.departDateAndTime | date: "HH:mm"}}</td>
-    <td>OTHER USER</td>
     <td>
       <a routerLink="/trip/{{trip._id}}">
         <img src="../../../assets/images/details-icon.png" width="30px">
