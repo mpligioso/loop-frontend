@@ -42,7 +42,8 @@ export class MatchService {
 
   checkMatch(tripId){
     return this.myHttpServ
-    .get(``)
+    .get(`${backendUrl}/api/match/${tripId}/status`, {withCredentials: true})
+    .toPromise()
   }
 }
 

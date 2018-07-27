@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { AuthService, User } from "../api/auth.service";
 import { TripsService, Trip, Location } from "../api/trips.service";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
+import { MatchService } from "../api/match.service";
 
 @Component({
   selector: "app-dashboard-page",
@@ -14,7 +15,8 @@ export class DashboardPageComponent implements OnInit {
 
   constructor(
     public myAuthServ: AuthService,
-    private myTripServ: TripsService
+    private myTripServ: TripsService,
+    private myMatchServ: MatchService,
   ) {}
 
   ngOnInit() {
