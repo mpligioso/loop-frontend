@@ -11,8 +11,9 @@
             <ul>
               <li>Date: {{match.trip.departDateAndTime | date: "dd/MM/yy"}}</li>
               <li>Départ: {{match.trip.startLocation.string}}</li>
-              <li>Heure: {{match.trip.departDateAndTime | date: "H:mm"}}</li>
+              <li>Heure de départ souhaitée: {{match.trip.departDateAndTime | date: "H:mm"}}</li>
               <li>Arrivée: {{match.trip.endLocation.string}}</li>
+              <li>Durée totale du trajet: {{match.dur}} secondes</li>
             </ul>
           </a>
         </section>
