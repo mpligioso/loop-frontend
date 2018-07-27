@@ -44,21 +44,21 @@ h3 {
 }
 
 .match-box img {
-  height: 125px;
+  height: 200px;
 }
 
 .match-box ul {
   display: flex;
   flex-flow: wrap;
-  width: 600px;
+  width: 800px;
   flex-grow: inherit;
   justify-content: flex-start;
   list-style: none;
 }
 
 .match-box li {
-  width: 16em;
-  height: 4em;
+  width: 18em;
+  height: 5em;
 }
 
 .map {
@@ -66,3 +66,20 @@ h3 {
   width:100%;
   height:800px
 }
+
+
+li a {
+  color: darkblue;
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+button {
+  background-color: #fe5d6a;
+  border: none;
+  color: white;
+  font-size: 25px;
+  border-radius: 28px;
+  height: 50px;
+  /* margin: 0 auto; */
+ }

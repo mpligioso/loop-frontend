@@ -15,7 +15,8 @@ export class ResultsPageComponent implements OnInit {
   match: matchedTrip;
   id: string;
   matchId: string;
-  userTrip;
+  userTrip: Trip;
+  routeResult: ABCDTripResult;
 
 
   @ViewChild('gmap') gmapElement: any;
@@ -56,7 +57,7 @@ export class ResultsPageComponent implements OnInit {
 
   getUserTrip(match: matchedTrip){
     this.myTripServ.getTripDetails(this.id)
-      .then((response)=>{
+      .then((response: any)=>{
         console.log("Posted trip =", response);
         this.userTrip = response;
         this.initMap(this.match, this.userTrip);
@@ -86,7 +87,7 @@ export class ResultsPageComponent implements OnInit {
   }
 
   //Map initialisation (default coordinates : Paris)
- initMap(match: matchedTrip, userTrip) {
+ initMap(match: matchedTrip, userTrip: Trip) {
   let directionsDisplay = new google.maps.DirectionsRenderer();
   let mapOptions = {
     zoom:14,
@@ -99,7 +100,7 @@ export class ResultsPageComponent implements OnInit {
 }
 
 
- calcRoute(match: matchedTrip, userTrip, directionsDisplay) {
+ calcRoute(match: matchedTrip, userTrip: Trip, directionsDisplay) {
   const matchStart = match.trip.startLocation.string;
   const matchEnd = match.trip.endLocation.string;
   const userStart = userTrip.startLocation.string;
@@ -137,7 +138,8 @@ export class ResultsPageComponent implements OnInit {
 
   this.directionsService.route(request, function(result, status) {
     if (status === google.maps.DirectionsStatus.OK) {
-      console.log(result);
+      console.log("route result=", result);
+      this.routeResult=result;
       directionsDisplay.setDirections(result);
       directionsDisplay.setOptions({
           polylineOptions: {
@@ -149,3 +151,13 @@ export class ResultsPageComponent implements OnInit {
 }
 
 }
+
+class ABCDTripResult {
+  geocoded_waypoints: any;
+  request: any;
+  origin: any;
+  travelMode: string;
+  waypoints: Array<any>;
+  routes: Array<any>;
+  status: string;
+  }

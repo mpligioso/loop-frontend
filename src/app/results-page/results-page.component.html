@@ -5,17 +5,22 @@
 
       <div class="match-box">
         <img [src]="match.trip.user.pictureURL" alt="photo de {{match.trip.user.firstName}}">
+
         <section>
           <h3>Voyagez avec <a href="/profile/{{match.trip.user._id}}" target="_blank">{{match.trip.user.firstName}}</a> !</h3>
-          <a href="/trip/{{match.trip._id}}" target="_blank">
-            <ul>
-              <li>Date: {{match.trip.departDateAndTime | date: "dd/MM/yy"}}</li>
-              <li>Départ: {{match.trip.startLocation.string}}</li>
-              <li>Heure de départ souhaitée: {{match.trip.departDateAndTime | date: "H:mm"}}</li>
-              <li>Arrivée: {{match.trip.endLocation.string}}</li>
-              <li>Durée totale du trajet: {{match.dur}} secondes</li>
-            </ul>
-          </a>
+
+          <h4>Trajet de co-voiturage proposé: </h4>
+          <ul>
+            <li>Date: {{match.trip.departDateAndTime | date: "dd/MM/yy"}}</li>
+            <li>Départ: {{match.trip.startLocation.string}}</li>
+            <li>Heure de départ souhaitée par le covoitureur: {{match.trip.departDateAndTime | date: "H:mm"}}</li>
+            <li>Arrivée : {{match.trip.endLocation.string}}</li>
+            <li><a href="/trip/{{userTrip._id}}" target="_blank">Voir les détails de mon trajet</a></li>
+            <li><a href="/trip/{{match.trip._id}}" target="_blank">Voir les détails du trajet de {{match.trip.user.firstName}}.</a></li>  
+          </ul>
+
+          <!-- <div class="trip-details-links">
+         </div> -->
         </section>
 
         <button (click)="initMatchReq(match.trip._id)">faire une demande</button>
@@ -24,3 +29,6 @@
 </div>
 
 <div class="map" #gmap ></div>
+
+<!-- <p><a href="/trip/{{userTrip._id}}" target="_blank">Voir les détails de mon trajet</a></p>
+<p><a href="/trip/{{match.trip._id}}" target="_blank">Voir les détails du trajet de {{match.trip.user.firstName}}.</a></p> -->
