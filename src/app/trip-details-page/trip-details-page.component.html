@@ -27,6 +27,11 @@
           <h2>Informations Supplémentaires</h2>
           <p>{{currentTrip?.comment}}</p>
         </li>
+
+        <li *ngIf="matchDetails">
+          <h2 *ngIf="currentTrip?._id === matchDetails?.driverTripId"><a class="request" routerLink="/trip/{{matchDetails?.passengerTripId}}">Voir les détails de votre match</a></h2>
+          <h2 *ngIf="currentTrip?._id === matchDetails?.passengerTripId"><a class="request" routerLink="/trip/{{matchDetails?.driverTripId}}">Voir les détails de votre match</a></h2>
+        </li>
       </ul>
 
 
