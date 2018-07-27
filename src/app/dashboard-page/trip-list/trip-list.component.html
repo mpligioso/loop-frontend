@@ -11,7 +11,7 @@
   <tr *ngFor="let trip of tripData">
     <td>{{trip?.startLocation.string}} - {{trip?.endLocation.string}}</td>
     <td>{{trip?.departDateAndTime | date: "dd/MM/yy"}}</td>
-    <td>{{trip?.departDateAndTime | date: "H:mm"}}</td>
+    <td>{{trip?.departDateAndTime | date: "HH:mm"}}</td>
     <td>OTHER USER</td>
     <td>
       <a routerLink="/trip/{{trip._id}}">

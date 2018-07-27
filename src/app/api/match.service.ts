@@ -40,6 +40,10 @@ export class MatchService {
     .toPromise()
   }
 
+  checkMatch(tripId){
+    return this.myHttpServ
+    .get(``)
+  }
 }
 
 export class Match {

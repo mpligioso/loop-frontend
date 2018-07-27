@@ -1,1 +1,43 @@
-<p>trip details works!</p>
+<div class="flexy">
+  <div class="text">
+    <h2>Départ</h2>
+    <p>{{currentTrip?.startLocation.string}}</p>
+
+    <h3>Date</h3>
+    <p>{{currentTrip?.departDateAndTime | date: "dd/MM/yy"}} </p>
+
+    <h3>Heure</h3>
+    <p> {{currentTrip?.departDateAndTime | date: "HH:mm"}}</p>
+
+    <h2>Arrivée</h2>
+    <p>{{currentTrip?.endLocation.string}}</p>
+
+    <h3>Heure estimée</h3>
+    <p>SOME TIME HERE</p>
+
+  </div>
+
+  <section class="side">
+    <div class="user-info">
+      <img [src]="currentTrip?.user.pictureURL" alt="Photo de {{currentTrip?.user.firstName}}"> {{currentTrip?.user.firstName}}
+      <hr>
+
+      <section *ngIf="currentTrip?.user.cars.length > 0">TEST</section>
+
+      <span>
+        <a *ngIf="currentTrip?.user._id !== connectedUser?._id" routerLink="/user/{{currentTrip?.user._id}}">Voir son profil</a>
+
+        <a *ngIf="currentTrip?.user._id === connectedUser?._id" routerLink="/dashboard">Retourner à votre Tableau de Bord</a>
+      </span>
+    </div>
+
+    <div class="sup-info" *ngIf="currentTrip?.comment">
+      <h3>Informations Supplémentaires</h3>
+      <p>{{currentTrip?.comment}}</p>
+    </div>
+
+    <button *ngIf="currentTrip?.user._id !== connectedUser?._id">Faire une demande</button>
+
+
+  </section>
+</div>
