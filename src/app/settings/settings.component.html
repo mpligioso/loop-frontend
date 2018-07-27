@@ -60,26 +60,30 @@
   </div>
 </div>
 
-<form (ngSubmit)="carSubmit()">
-  <!-- if Driver -->
-  <div *ngIf="myAuthServ.currentUser.isDriver">
+<div class="login-page">
+  <div class="form">
+    <form (ngSubmit)="carSubmit()" class="login-form">
+      <!-- if Driver -->
+      <div *ngIf="myAuthServ.currentUser.isDriver">
 
-    <button>Ajouter une voiture</button>
-    <input [(ngModel)]="carForm.brand" name="cars.brand" id="cars.brand" type="text" placeholder="Marque">
-    <br>
+        <label>Ajouter une voiture:</label>
+        <input [(ngModel)]="carForm.brand" name="cars.brand" id="cars.brand" type="text" placeholder="Marque">
+        <br>
 
-    <input [(ngModel)]="carForm.model" name="cars.model" id="cars.model" type="text" placeholder="Modèle">
-    <br>
+        <input [(ngModel)]="carForm.model" name="cars.model" id="cars.model" type="text" placeholder="Modèle">
+        <br>
 
-    <input [(ngModel)]="carForm.color" name="cars.color" id="cars.color" type="text" placeholder="Couleur">
-    <br>
+        <input [(ngModel)]="carForm.color" name="cars.color" id="cars.color" type="text" placeholder="Couleur">
+        <br>
 
-    <input [(ngModel)]="carForm.licensePlate" name="cars.licensePlate" id="cars.licensePlate" type="text" placeholder="Plaque d'immatriculation">
-    <br>
+        <input [(ngModel)]="carForm.licensePlate" name="cars.licensePlate" id="cars.licensePlate" type="text" placeholder="Plaque d'immatriculation">
+        <br>
 
-    <input [(ngModel)]="carForm.numberOfSeats" name="cars.numberOfSeats" id="cars.numberOfSeats" type="number" placeholder="Nombre de sièges">
-    <br>
+        <input [(ngModel)]="carForm.numberOfSeats" name="cars.numberOfSeats" id="cars.numberOfSeats" type="number" placeholder="Nombre de sièges">
+        <br>
 
-    <button>Ajouter cette voiture</button>
+        <button>Valider</button>
+      </div>
+    </form>
   </div>
-</form>
+</div>

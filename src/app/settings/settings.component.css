@@ -5,7 +5,7 @@ input,
 button {
   width: 380px;
   /* height: 60px; */
-  font-size: 2em;
+  font-size: 1.3em;
 }
 
 .switch-field input {
@@ -23,7 +23,7 @@ button {
 
 .switch-field label {
   display: inline-block;
-  width: 105px;
+  width: 150px;
   background-color: #e4e4e4;
   color: rgba(0, 0, 0, 0.6);
   font-size: 1em;
@@ -74,6 +74,7 @@ button {
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+  width: 500px;
 }
 .form input {
   font-family: "Roboto", sans-serif;
@@ -86,7 +87,8 @@ button {
   box-sizing: border-box;
   font-size: 14px;
 }
-.form .submit {
+.form .submit,
+.form button {
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
@@ -103,7 +105,10 @@ button {
 }
 .form .submit:hover,
 .form .submit:active,
-.form .submit:focus {
+.form .submit:focus,
+.form button:hover,
+.form button:active,
+.form button:focus {
   background: #5cc9a0;
 }
 .form .message {
