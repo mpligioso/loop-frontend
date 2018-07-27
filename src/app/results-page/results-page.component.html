@@ -1,12 +1,12 @@
 <div class="flexy">
   <h1>Vous avez des matchs</h1>
 
-  <p>Your matches are based on the most time effecient trips for both you and your co-rider.</p>
+  <p>Une personne voyage dans la même direction que vous, dans la même tranche horaire !</p>
 
       <div class="match-box">
         <img [src]="match.trip.user.pictureURL" alt="photo de {{match.trip.user.firstName}}">
         <section>
-          <h3><a href="/profile/{{match.trip.user._id}}" target="_blank">{{match.trip.user.firstName}}</a> souhaite voyager avec vous!</h3>
+          <h3>Voyagez avec <a href="/profile/{{match.trip.user._id}}" target="_blank">{{match.trip.user.firstName}}</a> !</h3>
           <a href="/trip/{{match.trip._id}}" target="_blank">
             <ul>
               <li>Date: {{match.trip.departDateAndTime | date: "dd/MM/yy"}}</li>
