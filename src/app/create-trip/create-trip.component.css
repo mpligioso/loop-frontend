@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
 form {
   display: flex;
   flex-direction: column;
@@ -12,8 +14,6 @@ form .departTime p {
   display: inline;
   padding: 5px;
 }
-
-@import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
 label,
 input,
@@ -167,4 +167,8 @@ button {
 }
 .container .info span .fa {
   color: #ef3b3a;
+}
+
+.departTime {
+  margin-bottom: 12px;
 }
