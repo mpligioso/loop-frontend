@@ -5,7 +5,7 @@ import { ViewChild } from '@angular/core';
 import { TripsService, Trip } from '../api/trips.service';
 import { ActivatedRoute } from '@angular/router';
 import { User, AuthService } from '../api/auth.service';
-import { MatchService } from '../api/match.service';
+import { MatchService, Match } from '../api/match.service';
 
 @Component({
   selector: 'app-trip-details-page',
@@ -16,6 +16,7 @@ export class TripDetailsPageComponent implements OnInit {
   tripId: string;
   currentTrip: Trip;
   connectedUser: User;
+  matchDetails: Match;
 
   constructor(
     private myActivatedRouteServ: ActivatedRoute,
@@ -31,6 +32,7 @@ export class TripDetailsPageComponent implements OnInit {
         this.getTripDetails();
       })
       this.getConnectedUserDetails();
+      this.checkIfMatched();
   };
 
   getTripDetails(){
@@ -56,7 +58,14 @@ export class TripDetailsPageComponent implements OnInit {
       })
   }
 
-  // checkIfMatched(){
-  //   this.myMatchServ.
-  // }
+  checkIfMatched(){
+    this.myMatchServ.checkMatch(this.tripId)
+      .then((response: any) => {
+        this.matchDetails = response;
+        console.log(this.matchDetails)
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
 }

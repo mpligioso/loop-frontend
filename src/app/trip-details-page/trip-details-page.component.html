@@ -1,47 +1,3 @@
-<!-- <div class="flexy">
-  <div class="text">
-    <h2>Départ</h2>
-    <p>{{currentTrip?.startLocation.string}}</p>
-
-    <h3>Date</h3>
-    <p>{{currentTrip?.departDateAndTime | date: "dd/MM/yy"}} </p>
-
-    <h3>Heure</h3>
-    <p> {{currentTrip?.departDateAndTime | date: "HH:mm"}}</p>
-
-    <h2>Arrivée</h2>
-    <p>{{currentTrip?.endLocation.string}}</p>
-
-    <h3>Heure estimée</h3>
-    <p>SOME TIME HERE</p>
-
-  </div>
-
-  <section class="side">
-    <div class="user-info">
-      <img [src]="currentTrip?.user.pictureURL" alt="Photo de {{currentTrip?.user.firstName}}"> {{currentTrip?.user.firstName}}
-      <hr>
-
-      <section *ngIf="currentTrip?.user.cars.length > 0">TEST</section>
-
-      <span>
-        <a *ngIf="currentTrip?.user._id !== connectedUser?._id" routerLink="/user/{{currentTrip?.user._id}}">Voir son profil</a>
-
-        <a *ngIf="currentTrip?.user._id === connectedUser?._id" routerLink="/dashboard">Retourner à votre Tableau de Bord</a>
-      </span>
-    </div>
-
-    <div class="sup-info" *ngIf="currentTrip?.comment">
-      <h3>Informations Supplémentaires</h3>
-      <p>{{currentTrip?.comment}}</p>
-    </div>
-
-    <button *ngIf="currentTrip?.user._id !== connectedUser?._id">Faire une demande</button>
-
-
-  </section>
-</div> -->
-
 
 <div class="page">
   <div class="wrapper">
@@ -66,9 +22,13 @@
           <h2>Arrivée</h2>
           <p>{{currentTrip?.endLocation.string}}</p>
         </li>
-        </ul>
-        <!-- <h3>Heure estimée</h3>
-        <p>SOME TIME HERE</p> -->
+
+        <li *ngIf="currentTrip?.comment">
+          <h2>Informations Supplémentaires</h2>
+          <p>{{currentTrip?.comment}}</p>
+        </li>
+      </ul>
+
 
       </div>
     </div>
@@ -91,10 +51,21 @@
 
       <section *ngIf="currentTrip?.user.cars.length > 0">
         <h2>Voiture</h2>
-
+        <p></p>
       </section>
 
-      <span *ngIf="currentTrip?.user._id !== connectedUser?._id">
+      <section *ngIf="matchDetails">
+        <h3 *ngIf="!matchDetails.acceptedByDriver || !matchDetails.acceptedByPassenger"><i>Ce voyage est en attente de confirmation</i></h3>
+        <article *ngIf="matchDetails.acceptedByDriver && matchDetails.acceptedByPassenger">
+          <h3>Ce trajet a été confirmé.</h3>
+            <p>Veuillez contacter votre covoitureur par téléphone ou mail pour organiser ce voyage.</p>
+        </article>
+        <a routerLink="/requests">Voir vos rêquetes</a>
+      </section>
+      <br><br>
+
+
+      <span *ngIf="currentTrip?.user._id !== connectedUser?._id && !matchDetails">
         <button class="request">Faire une demande</button>
         <br><br>
         <a routerLink="/user/{{currentTrip?.user._id}}">Voir son profil</a>
