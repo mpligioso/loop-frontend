@@ -3,6 +3,8 @@
   padding: 0;
 }
 
+/*
+
 a {
   text-decoration: none;
   color: black;
@@ -18,12 +20,6 @@ button {
   align-self: center;
   align-items: center;
   margin-top: 160px;
-  width:400px;
-}
-
-img {
-  border: solid 1px black;
-  height: 150px;
 }
 
 .side {
@@ -32,4 +28,140 @@ img {
   justify-content: space-evenly;
   align-items: center;
   height: 400px;
+} */
+
+img {
+  width: 120px;
+}
+.about {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 25px;
+}
+
+.delete {
+  background-color: #fe5d6a;
+  border: none;
+  width: 205px;
+  color: white;
+  border-radius: 28px;
+  height: 50px;
+  margin: 0 auto;
+  text-decoration: none;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+
+.request {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #ffffff;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  margin-top: 15px;
+  color: #5cc9a0;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+
+.request:hover,
+button:active,
+button:focus {
+ background: #5cc9a0;
+ color: #ffffff;
+}
+
+hr {
+  color: white;
+}
+
+.page {
+  padding-top: 100px;
+}
+
+.page:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.wrapper {
+  max-width: 1160px;
+  margin: 0 auto;
+  /* position: relative; */
+  padding: 0 20px;
+  min-height: 600px;
+}
+
+.content-wrapper {
+  float: left;
+  width: 100%;
+  /* border: solid 1px #55C9A0; */
+}
+
+.content {
+  margin-right: 320px;
+  clear: both;
+  overflow: auto;
+  /* background: rgba(85, 201, 160); */
+  min-height: 600px;
+}
+
+.content h1 {
+  text-align: center;
+  color: #55C9A0;
+}
+
+.content section {
+  padding-top: 50px;
+  padding-left: 50px;
+}
+
+ul {
+  padding: 50px;
+  list-style: none;
+}
+
+li {
+  padding: 10px;
+}
+
+.sidebar {
+  /* position: relative; */
+  width: 320px;
+  margin-left: -320px;
+  float: right;
+  overflow: hidden;
+  /* background: #2c3e50; */
+  background: rgba(85, 201, 160);
+  color: #ffffff;
+  min-height: 600px;
+}
+
+.sidebar {
+  text-align: center;
+}
+
+a {
+  display: block;
+  text-align:center;
+  margin: 10px auto;
+  width: 100%;
+  color: #2c3e50;
+}
+
+@media only screen and (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  .content {
+    margin-right: 0;
+  }
 }

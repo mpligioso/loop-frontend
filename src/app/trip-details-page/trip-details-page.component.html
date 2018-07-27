@@ -1,4 +1,4 @@
-<div class="flexy">
+<!-- <div class="flexy">
   <div class="text">
     <h2>Départ</h2>
     <p>{{currentTrip?.startLocation.string}}</p>
@@ -40,4 +40,71 @@
 
 
   </section>
+</div> -->
+
+
+<div class="page">
+  <div class="wrapper">
+    <div class="content-wrapper">
+      <div class="content">
+        <h1>Détails du Trajet</h1>
+        <ul>
+          <li><h2>Départ</h2>
+          <p>{{currentTrip?.startLocation.string}}</p>
+          </li>
+
+          <li><h2>Date</h2>
+          <p>{{currentTrip?.departDateAndTime | date: "dd/MM/yy"}} </p>
+          </li>
+
+        <li>
+          <h2>Heure</h2>
+          <p> {{currentTrip?.departDateAndTime | date: "HH:mm"}}</p>
+        </li>
+
+        <li>
+          <h2>Arrivée</h2>
+          <p>{{currentTrip?.endLocation.string}}</p>
+        </li>
+        </ul>
+        <!-- <h3>Heure estimée</h3>
+        <p>SOME TIME HERE</p> -->
+
+      </div>
+    </div>
+    <div class="sidebar">
+      <h2>Détails d'utilisateur</h2>
+      <section class="about">
+        <img [src]="currentTrip?.user.pictureURL" alt="Photo de {{currentTrip?.user.firstName}}">
+        <h2>{{currentTrip?.user.firstName}} {{currentTrip?.user.lastName}}</h2>
+      </section>
+
+      <ul>
+        <li><h4>Numéro de Téléphone:</h4>
+           <h3>{{currentTrip?.user.phoneNumber}}</h3>
+        </li>
+
+        <li><h4>Adresse Mail:</h4>
+          <h3>{{currentTrip?.user.email}}</h3>
+        </li>
+      </ul>
+
+      <section *ngIf="currentTrip?.user.cars.length > 0">
+        <h2>Voiture</h2>
+
+      </section>
+
+      <span *ngIf="currentTrip?.user._id !== connectedUser?._id">
+        <button class="request">Faire une demande</button>
+        <br><br>
+        <a routerLink="/user/{{currentTrip?.user._id}}">Voir son profil</a>
+      </span>
+
+      <span *ngIf="currentTrip?.user._id === connectedUser?._id">
+        <button class="delete">Supprimer ce trajet</button>
+        <br><br>
+        <a routerLink="/dashboard">Retourner à votre tableau de bord</a>
+      </span>
+    </div>
+  </div>
 </div>
