@@ -18,10 +18,13 @@
         <div class="border">
             <ul>
                 <li *ngIf="userData?.gender">{{userData?.gender}}</li>
-                <li>Téléphone: {{userData?.phoneNumber}}</li>
-                <li>Mail: {{userData?.email}}</li>
+                <li>
+                    <fa-icon [icon]="faMobileAlt"></fa-icon>: {{userData?.phoneNumber}}</li>
+                <li>
+                    <fa-icon [icon]="faEnvelope"></fa-icon>: {{userData?.email}}</li>
                 <li *ngIf="userData?.isDriver">Numéro de permis: {{userData?.licenseNumber}}</li>
-                <li>Password: •••••••</li>
+                <li>
+                    <fa-icon [icon]="faKey"></fa-icon>: •••••••</li>
             </ul>
         </div>
 

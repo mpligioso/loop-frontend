@@ -1,7 +1,12 @@
 import { Component, OnInit } from "@angular/core";
 import { AuthService, User } from "../api/auth.service";
 import { TripsService, Trip, Location } from "../api/trips.service";
-import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPencilAlt,
+  faMobileAlt,
+  faEnvelope,
+  faKey
+} from "@fortawesome/free-solid-svg-icons";
 import { MatchService } from "../api/match.service";
 
 @Component({
@@ -12,11 +17,14 @@ import { MatchService } from "../api/match.service";
 export class DashboardPageComponent implements OnInit {
   userData: User;
   faPencilAlt = faPencilAlt;
+  faMobileAlt = faMobileAlt;
+  faEnvelope = faEnvelope;
+  faKey = faKey;
 
   constructor(
     public myAuthServ: AuthService,
     private myTripServ: TripsService,
-    private myMatchServ: MatchService,
+    private myMatchServ: MatchService
   ) {}
 
   ngOnInit() {
