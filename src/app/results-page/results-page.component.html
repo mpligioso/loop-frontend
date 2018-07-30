@@ -22,14 +22,35 @@
         <section>
           <h3>Voyagez avec <a href="/profile/{{match.trip.user._id}}" target="_blank">{{match.trip.user.firstName}}</a> !</h3>
 
-          <h4>Trajet de co-voiturage proposé: </h4>
+          <h4>Trajet de co-voiturage proposé : </h4>
+          <br>
           <ul>
-            <li>Date: {{match.trip.departDateAndTime | date: "dd/MM/yy"}}</li>
-            <li>Départ: {{match.trip.startLocation.string}}</li>
-            <li>Heure de départ souhaitée par le covoitureur: {{match.trip.departDateAndTime | date: "H:mm"}}</li>
-            <li>Arrivée : {{match.trip.endLocation.string}}</li>
+            <li><b>Date :</b> {{match.trip.departDateAndTime | date: "dd/MM/yy"}}</li>
+
+            <li><b>Heure de départ souhaitée par le covoitureur :</b> {{match.trip.departDateAndTime | date: "H:mm"}}</li>
+
+            <li><b>Départ :</b>
+              <span *ngIf="!userTrip.user.isDriver"> {{match.trip.startLocation.string}}</span>
+              <span *ngIf="userTrip.user.isDriver"> {{userTrip.startLocation.string}}</span>
+            </li>
+
+            <li><b>Premier arrêt :</b>
+                <span *ngIf="!userTrip.user.isDriver"> {{userTrip.startLocation.string}}</span>
+                <span *ngIf="userTrip.user.isDriver"> {{match.trip.startLocation.string}}</span>
+            </li>
+
+            <li><b>Deuxième arrêt :</b>
+                <span *ngIf="!userTrip.user.isDriver"> {{userTrip.endLocation.string}}</span>
+                <span *ngIf="userTrip.user.isDriver"> {{match.trip.endLocation.string}}</span>
+            </li>
+
+            <li><b>Arrivée :</b>
+              <span *ngIf="!userTrip.user.isDriver"> {{match.trip.endLocation.string}}</span>
+              <span *ngIf="userTrip.user.isDriver"> {{userTrip.endLocation.string}}</span>
+            </li>
+
             <li><a href="/trip/{{userTrip._id}}" target="_blank">Voir les détails de mon trajet</a></li>
-            <li><a href="/trip/{{match.trip._id}}" target="_blank">Voir les détails du trajet de {{match.trip.user.firstName}}.</a></li>
+            <li><a href="/trip/{{match.trip._id}}" target="_blank">Voir les détails du trajet de {{match.trip.user.firstName}}</a></li>
           </ul>
 
         </section>
