@@ -1,11 +1,16 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
-label,
 input,
 button {
   width: 380px;
   /* height: 60px; */
   font-size: 1.3em;
+}
+
+label {
+  width: 380px;
+  /* height: 60px; */
+  font-size: 1em;
 }
 
 .switch-field input {
@@ -23,7 +28,7 @@ button {
 
 .switch-field label {
   display: inline-block;
-  width: 150px;
+  width: 175px;
   background-color: #e4e4e4;
   color: rgba(0, 0, 0, 0.6);
   font-size: 1em;
@@ -61,20 +66,19 @@ button {
 }
 
 .login-page {
-  width: 360px;
+  width: 500px;
   padding: 8% 0 0;
   margin: auto;
 }
 .form {
   position: relative;
-  z-index: 1;
   background: #ffffff;
-  max-width: 360px;
+  /* max-width: 360px; */
   margin: 0 auto 100px;
   padding: 45px;
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-  width: 500px;
+  /* width: 400px; */
 }
 .form input {
   font-family: "Roboto", sans-serif;
@@ -125,7 +129,6 @@ button {
 }
 .container {
   position: relative;
-  z-index: 1;
   max-width: 300px;
   margin: 0 auto;
 }

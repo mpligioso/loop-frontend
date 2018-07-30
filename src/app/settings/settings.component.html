@@ -39,7 +39,9 @@
 
       <!-- if Passenger -->
       <div *ngIf="!myAuthServ.currentUser.isDriver">
-        <label>Mes informations de passager :</label>
+        <label>
+          <b>Mes informations de passager :</b>
+        </label>
         <fieldset>
 
           <legend>Mes besoins spécifiques</legend>
@@ -60,13 +62,12 @@
   </div>
 </div>
 
-<div class="login-page">
+<div class="login-page" *ngIf="myAuthServ.currentUser.isDriver">
   <div class="form">
     <form (ngSubmit)="carSubmit()" class="login-form">
       <!-- if Driver -->
-      <div *ngIf="myAuthServ.currentUser.isDriver">
-
-        <label>Ajouter une voiture:</label>
+      <div>
+        <label>Ajouter une voiture :</label>
         <input [(ngModel)]="carForm.brand" name="cars.brand" id="cars.brand" type="text" placeholder="Marque">
         <br>
 
