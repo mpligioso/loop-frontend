@@ -2,7 +2,7 @@
   <h1 *ngIf="matchData.length > 0">Vous avez des requêtes en attente</h1>
   <h1 *ngIf="matchData.length <= 0">Aucune demande en attente</h1>
 
-  <p>Accept or remove matches waiting to be confirmed</p>
+  <p>Accepter ou supprimer les demandes en attente.</p>
 
   <div *ngFor="let match of matchData">
     <div *ngIf="!(match.acceptedByDriver && match.acceptedByPassenger)">
@@ -33,7 +33,7 @@
         </div>
       </div>
 
-      <div class="match-box" *ngIf="match.passengerTripId.user !== userData._id">
+      <div class="match-box" *ngIf="match.passengerTripId.user._id !== userData._id">
         <img [src]="match?.passengerTripId.user.pictureURL" alt="photo de {{match.passengerTripId.user.firstName}}">
         <section>
           <h3>

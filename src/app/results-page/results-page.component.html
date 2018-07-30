@@ -1,4 +1,10 @@
-<div class="flexy">
+<div *ngIf="!match" class="flexy">
+  <h1>Vous n'avez pas de match pour le moment,</h1>
+  <h3><i>mais n'hésitez pas à vérifier régulièrement !</i></h3>
+  <a class="request" routerLink="/dashboard">Retourner à votre tableau de bord</a>
+</div>
+
+<div *ngIf="match" class="flexy">
   <h1>Vous avez des matchs</h1>
 
   <p>Une personne voyage dans la même direction que vous, dans la même tranche horaire !</p>
@@ -23,7 +29,7 @@
             <li>Heure de départ souhaitée par le covoitureur: {{match.trip.departDateAndTime | date: "H:mm"}}</li>
             <li>Arrivée : {{match.trip.endLocation.string}}</li>
             <li><a href="/trip/{{userTrip._id}}" target="_blank">Voir les détails de mon trajet</a></li>
-            <li><a href="/trip/{{match.trip._id}}" target="_blank">Voir les détails du trajet de {{match.trip.user.firstName}}.</a></li>  
+            <li><a href="/trip/{{match.trip._id}}" target="_blank">Voir les détails du trajet de {{match.trip.user.firstName}}.</a></li>
           </ul>
 
         </section>

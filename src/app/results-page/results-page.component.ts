@@ -12,6 +12,7 @@ import { MatchService, newMatchSubmission } from '../api/match.service';
   styleUrls: ['./results-page.component.css']
 })
 export class ResultsPageComponent implements OnInit {
+  duration: number;
   match: matchedTrip;
   id: string;
   matchId: string;
@@ -45,8 +46,16 @@ export class ResultsPageComponent implements OnInit {
   getMatchResults(){
     this.myTripServ.getTripMatches(this.id)
       .then((response: matchedTrip) => {
+        if (!response.hasOwnProperty("dur")){
+          this.match = undefined;
+          console.log("match =", this.match)
+          return;
+        }
         console.log("match =", response)
+
         this.match = response;
+        this.duration = Math.floor(this.match.dur / 60);
+
         this.getUserTrip(this.match);
       })
       .catch((err) => {
@@ -62,10 +71,10 @@ export class ResultsPageComponent implements OnInit {
         this.userTrip = response;
         this.initMap(this.match, this.userTrip);
       })
-      // .catch((err)=>{
-      //   alert("Un problème est survenu. Essayez d'actualiser.")
-      //   console.log(err)
-      // })
+      .catch((err)=>{
+        alert("Un problème est survenu. Essayez d'actualiser.")
+        console.log(err)
+      })
   }
 
 
