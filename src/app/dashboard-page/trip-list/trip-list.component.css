@@ -7,7 +7,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   padding: 0 50px;
-  margin: 20px 0px;
+  margin: 40px 0px 20px;
   align-items: center;
   color: #55c9a0;
 }
@@ -17,13 +17,13 @@ h1 {
   text-decoration: none;
 }
 
-.header .requests {
-  /* width: 50px; */
+/* .header .requests {
+  width: 50px;
   animation: shake 0.75s;
   animation-iteration-count: infinite;
-}
+} */
 
-@keyframes shake {
+/* @keyframes shake {
   0% {
     transform: translate(1px, 1px) rotate(0deg);
   }
@@ -57,7 +57,7 @@ h1 {
   100% {
     transform: translate(1px, -2px) rotate(-1deg);
   }
-}
+} */
 
 .links {
   align-content: flex-end;
@@ -89,7 +89,7 @@ button {
   font-size: 15px;
   border-radius: 28px;
   height: 50px;
-  margin: 0 auto;
+  margin: 0 2px auto;
 }
 
 button a {

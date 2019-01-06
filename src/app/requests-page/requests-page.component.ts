@@ -9,6 +9,7 @@ import { faHourglassHalf } from "../../../node_modules/@fortawesome/free-solid-s
   templateUrl: "./requests-page.component.html",
   styleUrls: ["./requests-page.component.css"]
 })
+
 export class RequestsPageComponent implements OnInit {
   matchData: Array<Match> = [];
   userData: User;

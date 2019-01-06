@@ -1,38 +1,13 @@
 <div class="dash">
     <div>
-        <h1>Bonjour, {{userData?.firstName}} {{userData?.lastName}}!</h1>
+        <h1>Bonjour, {{userData?.firstName}} {{userData?.lastName}} !</h1>
         <img [src]="userData?.pictureURL">
     </div>
 
     <div class="user-info left">
-
-        <span>
-            <h3>Données personnelles</h3>
-            <b>
-                <a routerLink="/settings">
-                    <fa-icon [icon]="faPencilAlt"></fa-icon>
-                </a>
-            </b>
-        </span>
-
-        <div class="border">
-            <ul>
-                <li *ngIf="userData?.gender">{{userData?.gender}}</li>
-                <li>
-                    <fa-icon [icon]="faMobileAlt"></fa-icon>: {{userData?.phoneNumber}}</li>
-                <li>
-                    <fa-icon [icon]="faEnvelope"></fa-icon>: {{userData?.email}}</li>
-                <li *ngIf="userData?.isDriver">Numéro de permis: {{userData?.licenseNumber}}</li>
-                <li>
-                    <fa-icon [icon]="faKey"></fa-icon>: •••••••</li>
-            </ul>
-        </div>
-
-        <div *ngIf="userData?.cars.length > 0" class="user-cars">
+        <div class="bg-box">
             <span>
-                <h3>
-                    Mes voitures
-                </h3>
+                <h3>Données personnelles</h3>
                 <b>
                     <a routerLink="/settings">
                         <fa-icon [icon]="faPencilAlt"></fa-icon>
@@ -41,31 +16,61 @@
             </span>
 
             <div class="border">
-                <ul *ngFor="let oneCar of userData?.cars">
-                    <li>Marque: {{oneCar.brand}}</li>
-                    <li>Modèle: {{oneCar.model}}</li>
-                    <li>Couleur: {{oneCar.color}}</li>
-                    <li>Plaque: {{oneCar.licensePlate}}</li>
-                    <li>Nombre de sièges: {{oneCar.numberOfSeats}}</li>
+                <ul>
+                    <li *ngIf="userData?.gender">{{userData?.gender}}</li>
+                    <li>
+                        <fa-icon [icon]="faMobileAlt"></fa-icon>: {{userData?.phoneNumber}}</li>
+                    <li>
+                        <fa-icon [icon]="faEnvelope"></fa-icon>: {{userData?.email}}</li>
+                    <li *ngIf="userData?.isDriver">Numéro de permis: {{userData?.licenseNumber}}</li>
+                    <li>
+                        <fa-icon [icon]="faKey"></fa-icon>: •••••••</li>
                 </ul>
             </div>
-        </div>
+         </div>
 
-        <div *ngIf="!userData?.isDriver">
-            <span>
-                <h3>
-                    <i>Mes besoins spécifiques</i>
-                </h3>
-                <b>
-                    <a routerLink="/settings">
-                        <fa-icon [icon]="faPencilAlt"></fa-icon>
-                    </a>
-                </b>
-            </span>
-            <ul>
-                <li *ngFor="let oneNeed of userData?.specificNeedsA">{{oneNeed}}</li>
-                <li *ngIf="userData?.specificNeedsB">{{userData?.specificNeedsB}}</li>
-            </ul>
+         <div class="bg-box">
+
+            <div *ngIf="userData?.cars.length > 0" class="user-cars">
+                <span>
+                    <h3>
+                        Mes voitures
+                    </h3>
+                    <b>
+                        <a routerLink="/settings">
+                            <fa-icon [icon]="faPencilAlt"></fa-icon>
+                        </a>
+                    </b>
+                </span>
+
+                <div class="border">
+                    <ul *ngFor="let oneCar of userData?.cars">
+                        <li>Marque: {{oneCar.brand}}</li>
+                        <li>Modèle: {{oneCar.model}}</li>
+                        <li>Couleur: {{oneCar.color}}</li>
+                        <li>Plaque: {{oneCar.licensePlate}}</li>
+                        <li>Nombre de sièges: {{oneCar.numberOfSeats}}</li>
+                    </ul>
+                </div>
+            </div>
+        
+
+            <div *ngIf="!userData?.isDriver">
+                <span>
+                    <h3>
+                        <i>Comment pouvons nous vous aider ?</i>
+                    </h3>
+                    <b>
+                        <a routerLink="/settings">
+                            <fa-icon [icon]="faPencilAlt"></fa-icon>
+                        </a>
+                    </b>
+                </span>
+                <ul>
+                    <li *ngFor="let oneNeed of userData?.specificNeedsA">{{oneNeed}}</li>
+                    <li *ngIf="userData?.specificNeedsB">{{userData?.specificNeedsB}}</li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

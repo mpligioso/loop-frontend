@@ -24,7 +24,7 @@ h1 {
 
 .dash img {
   align-self: center;
-  width: 400px;
+  width: 300px;
 }
 
 .user-info {
@@ -32,6 +32,13 @@ h1 {
   flex-direction: column;
   justify-content: flex-end; */
   width: 45%;
+}
+
+.user-info .bg-box {
+  background-color: #ddd;
+  border-radius: 5px;
+  padding: 2%;
+  margin: 2%;
 }
 
 .left {

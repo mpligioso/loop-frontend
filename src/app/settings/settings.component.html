@@ -44,7 +44,7 @@
         </label>
         <fieldset>
 
-          <legend>Mes besoins spécifiques</legend>
+          <legend>Comment pouvons nous vous aider ?</legend>
 
           <div *ngFor="let oneNeed of needs">
             <input (change)="checkArray(oneNeed.text)" [checked]="settingsForm.specificNeedsA.includes(oneNeed.text)" [name]="oneNeed.id"
